@@ -26,7 +26,7 @@ var path = {
         html: "build/",
         js: "build/assets/js/",
         css: "build/assets/css/",
-        img: "build/assets/img/",
+        img: "build/assets/images/",
         fonts: "build/assets/fonts/"
     },
     wp: {
@@ -38,7 +38,7 @@ var path = {
         html: "src/*.{htm,html}",
         js: "src/assets/js/*.js",
         css: "src/assets/sass/style.scss",
-        img: "src/assets/img/**/*.*",
+        img: "src/assets/images/**/*.*",
         fonts: "src/assets/fonts/**/*.*"
     },
     watch: {
