@@ -22,7 +22,7 @@ get_header(); ?>
 
 		// TODO Mocked function
 		function get_featured_posts() {
-			return $array = array(
+			return $posts = array(
 					    0 => array(
 					    	'id' => '10',
 					    	'url' => 'everest',
@@ -46,6 +46,30 @@ get_header(); ?>
 					);
 		}
 
+		function get_tours() {
+			$tours = 
+				array(
+					0 => array()
+				);
+			return $tours;
+		}
+
+		function get_reviewers() {
+			$reviewers = 
+				array(
+					0 => array()
+				);
+			return $reviewers;
+		}
+
+		function get_guides() {
+			$guides = 
+				array(
+					0 => array()
+				);
+			return  $guides;
+		}
+
 		$featured_posts = get_featured_posts();
 		foreach ($featured_posts as $i=>$featured_post) {
 		?>
@@ -56,7 +80,6 @@ get_header(); ?>
 		<?php
 		foreach ($featured_posts as $i=>$post) {
 		?>
-<?= get_theme_file_uri('assets/images/') . $post['img'] ?>
 
         <div class="carousel-item <?= ($i == 0) ? "active" : "" ?>">
           <img class="d-block w-100" src="<?= get_theme_file_uri('assets/images/') . $post['img'] ?>" alt="First slide">
