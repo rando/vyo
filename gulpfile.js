@@ -31,7 +31,8 @@ var path = {
     },
     wp: {
         css: "wordpress/wp-content/themes/vyo/assets/css/",
-        img: "wordpress/wp-content/themes/vyo/assets/images/"
+        img: "wordpress/wp-content/themes/vyo/assets/images/",
+        js: "wordpress/wp-content/themes/vyo/assets/js/"
     },
     src: {
         html: "src/*.{htm,html}",
@@ -112,8 +113,9 @@ gulp.task("js:build", function () {
         .pipe(gulp.dest(path.build.js))
         .pipe(uglify())
         .pipe(removeComments())
-        .pipe(rename("main.min.js"))
+        .pipe(rename("carousel.min.js"))
         .pipe(gulp.dest(path.build.js))
+        .pipe(gulp.dest(path.wp.js))
         .pipe(webserver.reload({stream: true}));
 });
 

@@ -458,8 +458,7 @@ function twentyseventeen_scripts() {
 	}
 
 	// VYO CDN scripts
-	wp_enqueue_script( 'propper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js', array(), '1.12.3' );
-	wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js', array(), '4.0.0' );
+	wp_enqueue_script( 'carousel', get_theme_file_uri('/assets/js/carousel.min.js'), array( 'jquery' ), '1.0.0' );
 	
 }
 add_action( 'wp_enqueue_scripts', 'twentyseventeen_scripts' );
