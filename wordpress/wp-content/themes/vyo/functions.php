@@ -456,8 +456,34 @@ function twentyseventeen_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// VYO CDN scripts
+	wp_enqueue_script( 'propper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js', array(), '1.12.3' );
+	wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js', array(), '4.0.0' );
+	
 }
 add_action( 'wp_enqueue_scripts', 'twentyseventeen_scripts' );
+
+// conditional enqueue styles
+function vyo_enqueue_styles() {
+	
+	$deps = false;
+
+	if (is_child_theme()) {
+		echo "child";
+		
+		$deps = array('parent-styles');
+		
+		// load parent styles if active child theme
+		wp_enqueue_style('parent-styles', trailingslashit(get_template_directory_uri()) .'assets/css/style.min.css', false);
+		
+	}
+	
+	// load active theme stylesheet
+	wp_enqueue_style('theme-styles', trailingslashit(get_template_directory_uri()) .'assets/css/style.min.css', $deps);
+	
+}
+add_action('wp_enqueue_scripts', 'vyo_enqueue_styles');
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
