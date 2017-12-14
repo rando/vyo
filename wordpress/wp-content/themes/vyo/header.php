@@ -69,14 +69,18 @@ if ( is_front_page() ) {
 		function get_featured_posts() {
 			return $array = array(
 					    0 => array(
+					    	'id' => '10',
+					    	'url' => 'everest',
 					    	'img' => '1.jpg',
 					    	'name' => 'Побачити Еверест',
-					    	'countries' => ['Непар'],
+					    	'countries' => ['Непал'],
 					    	'date' => '03 квітня - 25 квітня 2018',
 					    	'days' => '10 днів',
 					    	'price' => '885$'
 					    	),
 					    1 => array(
+					    	'id' => '12',
+					    	'url' => 'montblanc',
 					    	'img' => '2.jpg',
 					    	'name' => 'Тур навколо Монблану',
 					    	'countries' => ['Швейцарія', 'Франція', 'Італія'],
@@ -100,7 +104,7 @@ if ( is_front_page() ) {
 
 
         <div class="carousel-item <?= ($i == 0) ? "active" : "" ?>">
-          <img class="d-block w-100" src="assets/img/1.jpg" alt="First slide">
+          <img class="d-block w-100" src="wp-content/themes/vyo/assets/images/<?= $post['img'] ?>" alt="First slide">
           <div class="carousel-caption d-none d-block">
           	<!-- TODO: Add days wording -->
             <p class="tour-date font-weight-bold m-2"><?= $post['date'] ?>(<?= $post['days'] ?>)</p>
