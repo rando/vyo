@@ -29,6 +29,10 @@ var path = {
         img: "build/assets/img/",
         fonts: "build/assets/fonts/"
     },
+    wp: {
+        css: "wordpress/wp-content/themes/vyo/assets/css/",
+        img: "wordpress/wp-content/themes/vyo/assets/images/"
+    },
     src: {
         html: "src/*.{htm,html}",
         js: "src/assets/js/*.js",
@@ -96,6 +100,7 @@ gulp.task("css:build", function () {
         }))
         .pipe(rename("style.min.css"))
         .pipe(gulp.dest(path.build.css))
+        .pipe(gulp.dest(path.wp.css))
         .pipe(webserver.reload({stream: true}));
 });
 
@@ -127,7 +132,8 @@ gulp.task("image:build", function () {
             svgoPlugins: [{removeViewBox: false}],
             interlaced: true
         }))
-        .pipe(gulp.dest(path.build.img));
+        .pipe(gulp.dest(path.build.img))
+        .pipe(gulp.dest(path.wp.img));
 });
 
 
