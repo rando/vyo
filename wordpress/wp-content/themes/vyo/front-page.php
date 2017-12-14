@@ -56,10 +56,10 @@ get_header(); ?>
 		<?php
 		foreach ($featured_posts as $i=>$post) {
 		?>
-
+<?= get_theme_file_uri('assets/images/') . $post['img'] ?>
 
         <div class="carousel-item <?= ($i == 0) ? "active" : "" ?>">
-          <img class="d-block w-100" src="wp-content/themes/vyo/assets/images/<?= $post['img'] ?>" alt="First slide">
+          <img class="d-block w-100" src="<?= get_theme_file_uri('assets/images/') . $post['img'] ?>" alt="First slide">
           <div class="carousel-caption d-none d-block">
           	<!-- TODO: Add days wording -->
             <p class="tour-date font-weight-bold m-2"><?= $post['date'] ?>(<?= $post['days'] ?>)</p>
@@ -112,7 +112,7 @@ get_header(); ?>
             <div class="w-100"></div>
             <div class="col-md-4 col-12 mb-3 text-center">
                 <div class="guide">
-                    <img class="w-75 rounded-circle mb-35" src="assets/img/guides/achystyakov.jpg" alt="">
+                    <img class="w-75 rounded-circle mb-35" src="<?= get_theme_file_uri('assets/images/guides/') ?>achystyakov.jpg" alt="">
                     <div class="guide-name font-weight-bold text-center mb-1">Арсен Чистяков</div>
                     <div class="guide-desc mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dicta tempore cupiditate, aliquid omnis.</div>
                     <div class="guide-socials"><a href="https://fb.com/achystyakov">Facebook</a><a href="https://instagram.com/achystyakov">Instagram</a></div>
@@ -120,7 +120,7 @@ get_header(); ?>
             </div>
             <div class="col-md-4 col-12 mb-3 text-center">
                 <div class="guide">
-                    <img class="w-75 rounded-circle mb-35" src="assets/img/guides/ysira.jpg" alt="">
+                    <img class="w-75 rounded-circle mb-35" src="<?= get_theme_file_uri('assets/images/guides/') ?>ysira.jpg" alt="">
                     <div class="guide-name font-weight-bold text-center mb-1">Юля Сіра</div>
                     <div class="guide-desc mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint delectus sapiente maxime nostrum atque modi expedita.</div>
                     <div class="guide-socials"><a href="https://fb.com/yuliya.sira">Facebook</a><a href="https://www.instagram.com/sirenjka/">Instagram</a></div>
@@ -128,7 +128,7 @@ get_header(); ?>
             </div>
             <div class="col-md-4 col-12 mb-3 text-center">
                 <div class="guide">
-                    <img class="w-75 rounded-circle mb-35" src="assets/img/guides/mbalandukh.jpg" alt="">
+                    <img class="w-75 rounded-circle mb-35" src="<?= get_theme_file_uri('assets/images/guides/') ?>mbalandukh.jpg" alt="">
                     <div class="guide-name font-weight-bold text-center mb-1">Максим Баландюх</div>
                     <div class="guide-desc mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim fuga aperiam totam praesentium numquam incidunt provident.</div>
                     <div class="guide-socials"><a href="https://fb.com/maxymbalanduh">Facebook</a><a href="https://www.instagram.com/balanduh/">Instagram</a></div>
@@ -145,7 +145,7 @@ get_header(); ?>
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tour-container">
                 <div class="tour">
-                    <div><img class="w-100" src="assets/img/tours/slovenia.jpg" alt=""></div>
+                    <div><img class="w-100" src="<?= get_theme_file_uri('assets/images/tours/') ?>slovenia.jpg" alt=""></div>
                     <div class="tour-detail">
                         <div class="tour-date"><span class="font-weight-bold">29 грудня 2017 - 04 січня 2018</span> (10 днів)</div>
                         <div class="tour-countries mb-35">Словенія, Угорщина</div>
@@ -157,7 +157,7 @@ get_header(); ?>
 
            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tour-container">
                 <div class="tour">
-                    <div><img class="w-100" src="assets/img/tours/lofoten.jpg" alt=""></div>
+                    <div><img class="w-100" src="<?= get_theme_file_uri('assets/images/tours/') ?>lofoten.jpg" alt=""></div>
                     <div class="tour-detail">
                         <div class="tour-date"><span class="font-weight-bold">03 березня - 10 березня 2018</span> (7 днів)</div>
                         <div class="tour-countries mb-35">Норвегія</div>
@@ -169,7 +169,7 @@ get_header(); ?>
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tour-container">
                 <div class="tour">
-                    <div><img class="w-100" src="assets/img/tours/ebc.jpg" alt=""></div>
+                    <div><img class="w-100" src="<?= get_theme_file_uri('assets/images/tours/') ?>ebc.jpg" alt=""></div>
                     <div class="tour-detail">
                         <div class="tour-date"><span class="font-weight-bold">11 березня - 04 квітня 2018</span> (24 дня)</div>
                         <div class="tour-countries mb-35">Непал</div>
@@ -181,7 +181,7 @@ get_header(); ?>
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tour-container">
                 <div class="tour">
-                    <div><img class="w-100" src="assets/img/tours/china.jpg" alt=""></div>
+                    <div><img class="w-100" src="<?= get_theme_file_uri('assets/images/tours/') ?>china.jpg" alt=""></div>
                     <div class="tour-detail">
                         <div class="tour-date"><span class="font-weight-bold">28 квітя - 13 травня 2018</span> (15 днів)</div>
                         <div class="tour-countries mb-35">Китай</div>
@@ -193,7 +193,7 @@ get_header(); ?>
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tour-container">
                 <div class="tour">
-                    <div><img class="w-100" src="assets/img/tours/tmb-refugio.jpg" alt=""></div>
+                    <div><img class="w-100" src="<?= get_theme_file_uri('assets/images/tours/') ?>tmb-refugio.jpg" alt=""></div>
                     <div class="tour-detail">
                         <div class="tour-date"><span class="font-weight-bold">24 червня - 30 червня 2018</span> (7 днів)</div>
                         <div class="tour-countries mb-35">Франція, Італія, Швейцарія</div>
@@ -205,7 +205,7 @@ get_header(); ?>
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tour-container">
                 <div class="tour">
-                    <div><img class="w-100" src="assets/img/tours/tmb-camping.jpg" alt=""></div>
+                    <div><img class="w-100" src="<?= get_theme_file_uri('assets/images/tours/') ?>tmb-camping.jpg" alt=""></div>
                     <div class="tour-detail">
                         <div class="tour-date"><span class="font-weight-bold">01 липня - 08 липня 2018</span> (7 днів)</div>
                         <div class="tour-countries mb-35">Франція, Італія, Швейцарія</div>
@@ -235,7 +235,7 @@ get_header(); ?>
           <img class="d-block w-100" src="assets/img/static/empty.png" alt="First slide">
           <div class="carousel-caption d-none d-block">
             <div class="review-img mb-4">
-                <img class="d-block rounded-circle" src="assets/img/reviewers/nchystiakova.jpg" alt="First slide">
+                <img class="d-block rounded-circle" src="<?= get_theme_file_uri('assets/images/reviewers/') ?>nchystiakova.jpg" alt="First slide">
             </div>
             <div class="reviewer font-weight-bold">Наталя Чистякова</div>
             <div class="mb-5">Організатор Lviv Travel Club</div>
@@ -247,7 +247,7 @@ get_header(); ?>
           <img class="d-block w-100" src="assets/img/static/empty.png" alt="First slide">
           <div class="carousel-caption d-none d-block">
             <div class="review-img mb-4">
-                <img class="d-block rounded-circle" src="assets/img/reviewers/mstriltsiv.jpg" alt="First slide">
+                <img class="d-block rounded-circle" src="<?= get_theme_file_uri('assets/images/reviewers/') ?>mstriltsiv.jpg" alt="First slide">
             </div>
             <div class="reviewer font-weight-bold">Маріан Стрільців</div>
             <div class="mb-5">Фотограф, Турбат</div>
