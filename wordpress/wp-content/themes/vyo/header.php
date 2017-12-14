@@ -16,42 +16,119 @@
 <html <?php language_attributes(); ?> class="no-js no-svg">
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Useful meta tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow, noodp">
+<meta name="googlebot" content="index, follow">
+<meta name="google" content="notranslate">
+<meta name="format-detection" content="telephone=no">
+
 <link rel="profile" href="http://gmpg.org/xfn/11">
 
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
+<body>
 
-	<header id="masthead" class="site-header" role="banner">
 
-		<?php get_template_part( 'template-parts/header/header', 'image' ); ?>
+<?php
+if ( is_front_page() ) { 
+?>
+    <div class="navbar-wrapper">
+        <div class="container">
+            <div class="row no-gutter justify-content-between">
+                <div class="col-12 col-md-3 text-md-left text-center p-3">
+                    <a href="#">
+                        <img src="assets/img/static/logo-light.png" width="60" height="44" class="d-inline-block align-middle" alt="ВЙО. Агенція пригод">
+                <span class="logo-text">Агенція пригод</span>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-md-center text-center pt-1 pt-md-475 mb-4 mb-md-0 menu">
+                        <a class="m-2 active" href="#">Головна</a href="#">
+                        <a class="m-2" href="#">Мандрівки</a href="#">
+                        <a class="m-2" href="#">Блог</a href="#">
+                        <a class="m-2" href="#">Про нас</a href="#">
+                        <a class="m-2" href="#">Контакти</a href="#">
+                </div>
+                <div class="col-12 d-none d-sm-none d-md-block col-md-3 text-md-right text-center pt-3">
+                    <a href="https://instagram.com/vyo.travel"><img width="33" height="33" src="assets/img/static/instagram-light.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-		<?php if ( has_nav_menu( 'top' ) ) : ?>
-			<div class="navigation-top">
-				<div class="wrap">
-					<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
-				</div><!-- .wrap -->
-			</div><!-- .navigation-top -->
-		<?php endif; ?>
+    <!-- Featured Tours Carousel -->
+    <div id="carousel-header-cover" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+		
+		<?php
 
-	</header><!-- #masthead -->
+		// TODO Mocked function
+		function get_featured_posts() {
+			return $array = array(
+					    0 => array(
+					    	'img' => '1.jpg',
+					    	'name' => 'Побачити Еверест',
+					    	'countries' => ['Непар'],
+					    	'date' => '03 квітня - 25 квітня 2018',
+					    	'days' => '10 днів',
+					    	'price' => '885$'
+					    	),
+					    1 => array(
+					    	'img' => '2.jpg',
+					    	'name' => 'Тур навколо Монблану',
+					    	'countries' => ['Швейцарія', 'Франція', 'Італія'],
+					    	'date' => '03 квітня - 25 квітня 2018',
+					    	'days' => '10 днів',
+					    	'price' => '790€'
+					    	)
+					);
+		}
 
-	<?php
+		$featured_posts = get_featured_posts();
+		foreach ($featured_posts as $i=>$featured_post) {
+		?>
+        <li data-target="#carousel-header-cover" data-slide-to="<?= $i ?>" class="<?= ($i == 0) ? "active" : "" ?>"></li>
+		<?php } ?>
+      </ol>
+      <div class="carousel-inner">
+		<?php
+		foreach ($featured_posts as $i=>$post) {
+		?>
 
-	/*
-	 * If a regular post or page, and not the front page, show the featured image.
-	 * Using get_queried_object_id() here since the $post global may not be set before a call to the_post().
-	 */
-	if ( ( is_single() || ( is_page() && ! twentyseventeen_is_frontpage() ) ) && has_post_thumbnail( get_queried_object_id() ) ) :
-		echo '<div class="single-featured-image-header">';
-		echo get_the_post_thumbnail( get_queried_object_id(), 'twentyseventeen-featured-image' );
-		echo '</div><!-- .single-featured-image-header -->';
-	endif;
-	?>
 
-	<div class="site-content-contain">
-		<div id="content" class="site-content">
+        <div class="carousel-item <?= ($i == 0) ? "active" : "" ?>">
+          <img class="d-block w-100" src="assets/img/1.jpg" alt="First slide">
+          <div class="carousel-caption d-none d-block">
+          	<!-- TODO: Add days wording -->
+            <p class="tour-date font-weight-bold m-2"><?= $post['date'] ?>(<?= $post['days'] ?>)</p>
+            <p class="tour-countries mb-5"><?= join(', ', $post['countries']) ?></p>
+            <h3 class="tour-name mb-4"><a href="#"><?= $post['name'] ?></a></h3>
+            <p class="tour-price font-weight-bold mb-4"><?= $post['price'] ?></p>
+            <button type="button" class="btn btn-outline-vyo-lt mb-4">ВЙО!</button>
+          </div>
+        </div>
+
+		<?php
+		}
+		?>
+      </div>
+      <a class="carousel-control-prev" href="#carousel-header-cover" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Попередній</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel-header-cover" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Наступний</span>
+      </a>
+    </div>
+<?php } ?>
+
+
+
+
+
+
+
