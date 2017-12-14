@@ -41,7 +41,7 @@ if ( is_front_page() ) {
             <div class="row no-gutter justify-content-between">
                 <div class="col-12 col-md-3 text-md-left text-center p-3">
                     <a href="#">
-                        <img src="assets/img/static/logo-light.png" width="60" height="44" class="d-inline-block align-middle" alt="ВЙО. Агенція пригод">
+                        <img src="<?= get_theme_file_uri('assets/images/static/') ?>logo-light.png" width="60" height="44" class="d-inline-block align-middle" alt="ВЙО. Агенція пригод">
                 <span class="logo-text">Агенція пригод</span>
                     </a>
                 </div>
@@ -53,7 +53,8 @@ if ( is_front_page() ) {
                         <a class="m-2" href="#">Контакти</a href="#">
                 </div>
                 <div class="col-12 d-none d-sm-none d-md-block col-md-3 text-md-right text-center pt-3">
-                    <a href="https://instagram.com/vyo.travel"><img width="33" height="33" src="assets/img/static/instagram-light.png" alt=""></a>
+                    <a href="https://instagram.com/vyo.travel"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a>
+                    <a href="https://instagram.com/vyo.travel"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a>
                 </div>
             </div>
         </div>

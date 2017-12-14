@@ -232,7 +232,7 @@ get_header(); ?>
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="assets/img/static/empty.png" alt="First slide">
+          <img class="d-block w-100" src="<?= get_theme_file_uri('assets/images/static/') ?>empty.png" alt="First slide">
           <div class="carousel-caption d-none d-block">
             <div class="review-img mb-4">
                 <img class="d-block rounded-circle" src="<?= get_theme_file_uri('assets/images/reviewers/') ?>nchystiakova.jpg" alt="First slide">
@@ -244,7 +244,7 @@ get_header(); ?>
         </div>
 
         <div class="carousel-item">
-          <img class="d-block w-100" src="assets/img/static/empty.png" alt="First slide">
+          <img class="d-block w-100" src="<?= get_theme_file_uri('assets/images/static/') ?>empty.png" alt="First slide">
           <div class="carousel-caption d-none d-block">
             <div class="review-img mb-4">
                 <img class="d-block rounded-circle" src="<?= get_theme_file_uri('assets/images/reviewers/') ?>mstriltsiv.jpg" alt="First slide">

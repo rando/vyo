@@ -57,12 +57,12 @@
         </div>
 
         <div class="row no-gutter socials mb-5 justify-content-center">
-            <div class="col-6 col-sm-1 p-2 text-right"><a href="https://instagram.com/vyo.travel"><img src="assets/img/static/instagram-light.png" alt=""></a></div>
-            <div class="col-6 col-sm-1 p-2 text-left"><a href="https://instagram.com/vyo.travel"><img src="assets/img/static/instagram-light.png" alt=""></a></div>
+            <div class="col-6 col-sm-1 p-2 text-right"><a href="https://instagram.com/vyo.travel"><img src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a></div>
+            <div class="col-6 col-sm-1 p-2 text-left"><a href="https://instagram.com/vyo.travel"><img src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a></div>
         </div>
 
         <div class="row justify-content-center footer-logo mb-5">
-            <div class="col-12 text-center"><img src="assets/img/static/logo-light.png" alt=""></div>
+            <div class="col-12 text-center"><img src="<?= get_theme_file_uri('assets/images/static/') ?>logo-light.png" alt=""></div>
         </div>
 
         <div class="row justify-content-center">
