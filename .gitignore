@@ -19,5 +19,6 @@ wordpress/sitemap.xml.gz
 wordpress/wp-content/themes/vyo/assets/css/style.min.css
 wordpress/wp-content/themes/vyo/assets/images/
 
+package-lock.json
 build/
 node_modules/
