@@ -30,18 +30,28 @@ get_header(); ?>
 					    	'name' => 'Побачити Еверест',
 					    	'countries' => ['Непал'],
 					    	'date' => '03 квітня - 25 квітня 2018',
-					    	'days' => '10 днів',
+					    	'days' => '15 днів',
 					    	'price' => '885$'
 					    	),
 					    1 => array(
 					    	'id' => '12',
 					    	'url' => 'montblanc',
 					    	'img' => '2.jpg',
-					    	'name' => 'Тур навколо Монблану',
+					    	'name' => 'Навколо Монблану',
 					    	'countries' => ['Швейцарія', 'Франція', 'Італія'],
-					    	'date' => '03 квітня - 25 квітня 2018',
-					    	'days' => '10 днів',
+					    	'date' => '23 червня - 30 червня 2018',
+					    	'days' => '7 днів',
 					    	'price' => '790€'
+					    	),
+					    1 => array(
+					    	'id' => '13',
+					    	'url' => 'china',
+					    	'img' => '3.jpg',
+					    	'name' => 'Від Гонконгу до Пекіну',
+					    	'countries' => ['Китай'],
+					    	'date' => '28 квітня - 13 травня 2018',
+					    	'days' => '15 днів',
+					    	'price' => '980$'
 					    	)
 					);
 		}
@@ -65,8 +75,35 @@ get_header(); ?>
 		function get_guides() {
 			$guides = 
 				array(
-					0 => array()
-				);
+					'achystyakov' => array(
+						'name' => 'Арсен Чистяков',
+						'img' => 'achystyakov.jpg',
+						'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores accusamus reprehenderit officia sunt est ex laboriosam quisquam. Nulla, veritatis. Nobis, aliquid mollitia veniam natus quidem modi cum voluptas repellat similique.',
+						'facebook' => 'https://facebook.com/achystyakov',
+						'instagram' => 'https://instagram.com/achystyakov',
+						'email' => 'achystyakov@gmail.com',
+						'phone' => '+380967816537'
+						),
+					'ysira' => array(
+						'name' => 'Юля Сіра',
+						'img' => 'ysira.jpg',
+						'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores accusamus reprehenderit officia sunt est ex laboriosam quisquam. Nulla, veritatis. Nobis, aliquid mollitia veniam natus quidem modi cum voluptas repellat similique.',
+						'facebook' => 'https://facebook.com/yuliya.sira',
+						'instagram' => 'https://instagram.com/sirenjka',
+						'email' => 'ysira@gmail.com',
+						'phone' => '+380661230986'
+						),
+					'maxymbalanduh' => array(
+						'name' => 'Максим Баландюх',
+						'img' => 'mbalandukh.jpg',
+						'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores accusamus reprehenderit officia sunt est ex laboriosam quisquam. Nulla, veritatis. Nobis, aliquid mollitia veniam natus quidem modi cum voluptas repellat similique.',
+						'facebook' => 'https://facebook.com/maxymbalanduh',
+						'instagram' => 'https://instagram.com/balanduh',
+						'email' => 'mbalandukh@gmail.com',
+						'phone' => '+380931110333'
+						)
+					);
+				
 			return  $guides;
 		}
 
@@ -82,6 +119,8 @@ get_header(); ?>
 		?>
 
         <div class="carousel-item <?= ($i == 0) ? "active" : "" ?>">
+          <div class="shadow-top"></div>
+          <div class="shadow-bottom"></div>
           <img class="d-block w-100" src="<?= get_theme_file_uri('assets/images/') . $post['img'] ?>" alt="First slide">
           <div class="carousel-caption d-none d-block">
           	<!-- TODO: Add days wording -->
@@ -89,7 +128,7 @@ get_header(); ?>
             <p class="tour-countries mb-5"><?= join(', ', $post['countries']) ?></p>
             <h3 class="tour-name mb-4"><a href="#"><?= $post['name'] ?></a></h3>
             <p class="tour-price font-weight-bold mb-4"><?= $post['price'] ?></p>
-            <button type="button" class="btn btn-outline-vyo-lt mb-4">ВЙО!</button>
+            <a href="/<?= $post['url'] ?>" role="button" class="btn btn-outline-vyo-lt mb-4">ВЙО!</a>
           </div>
         </div>
 
@@ -127,35 +166,24 @@ get_header(); ?>
         </div> -->
 
         <!-- Guides block -->
-
         <div class="row mb-5 justify-content-center guides">
             <div class="col-12 text-center mb-475">
                 <h1>Наші Гіди</h1>
             </div>
             <div class="w-100"></div>
+		<?php
+		$guides = get_guides();
+		foreach ($guides as $nickname => $guide) {
+		?>
             <div class="col-md-4 col-12 mb-3 text-center">
                 <div class="guide">
-                    <img class="w-75 rounded-circle mb-35" src="<?= get_theme_file_uri('assets/images/guides/') ?>achystyakov.jpg" alt="">
-                    <div class="guide-name font-weight-bold text-center mb-1">Арсен Чистяков</div>
-                    <div class="guide-desc mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dicta tempore cupiditate, aliquid omnis.</div>
-                    <div class="guide-socials"><a href="https://fb.com/achystyakov">Facebook</a><a href="https://instagram.com/achystyakov">Instagram</a></div>
+                    <img class="w-75 rounded-circle mb-35" src="<?= get_theme_file_uri('assets/images/guides/').$guide['img'] ?>" alt="">
+                    <div class="guide-name font-weight-bold text-center mb-1"><?= $guide['name'] ?></div>
+                    <div class="guide-desc mb-4"><?= $guide['description'] ?></div>
+                    <div class="guide-socials"><a href="<?= $guide['facebook'] ?>">Facebook</a><a href="<?= $guide['instagram'] ?>">Instagram</a></div>
                 </div>
             </div>
-            <div class="col-md-4 col-12 mb-3 text-center">
-                <div class="guide">
-                    <img class="w-75 rounded-circle mb-35" src="<?= get_theme_file_uri('assets/images/guides/') ?>ysira.jpg" alt="">
-                    <div class="guide-name font-weight-bold text-center mb-1">Юля Сіра</div>
-                    <div class="guide-desc mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint delectus sapiente maxime nostrum atque modi expedita.</div>
-                    <div class="guide-socials"><a href="https://fb.com/yuliya.sira">Facebook</a><a href="https://www.instagram.com/sirenjka/">Instagram</a></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-12 mb-3 text-center">
-                <div class="guide">
-                    <img class="w-75 rounded-circle mb-35" src="<?= get_theme_file_uri('assets/images/guides/') ?>mbalandukh.jpg" alt="">
-                    <div class="guide-name font-weight-bold text-center mb-1">Максим Баландюх</div>
-                    <div class="guide-desc mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim fuga aperiam totam praesentium numquam incidunt provident.</div>
-                    <div class="guide-socials"><a href="https://fb.com/maxymbalanduh">Facebook</a><a href="https://www.instagram.com/balanduh/">Instagram</a></div>
-                </div>
+  		<?php } ?>
             </div>
         </div>
 

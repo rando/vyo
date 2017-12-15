@@ -7810,6 +7810,7 @@ body {
 
 .btn-outline-vyo-lt {
     border: 4px solid #fff;
+    transition: border 500ms ease-out;
 }
 
 .btn-outline-vyo-dr {
@@ -7832,13 +7833,26 @@ body {
     color: #fff;
 }
 
-#carousel-header-cover .carousel-inner .shadow {
+#carousel-header-cover:hover .btn-outline-vyo-lt {
+    border-color: green;
+}
+
+#carousel-header-cover .carousel-inner .shadow-top {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 60%;
     top: 0;
     left: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+}
+
+#carousel-header-cover .carousel-inner .shadow-bottom {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
 }
 
 #carousel-header-cover img {
