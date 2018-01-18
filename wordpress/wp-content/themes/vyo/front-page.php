@@ -110,7 +110,7 @@ get_header(); ?>
 			return $reviewers;
 		}
 
-		function get_guides() {
+		function get_guides_1() {
 			$guides = 
 				array(
 					'achystyakov' => array(
@@ -151,7 +151,7 @@ get_header(); ?>
 		function get_featured_posts() {
 			$args = array(
 				'numberposts'	=> -1,
-				'post_type'		=> 'post',
+				'post_type'		=> 'tours',
 				'meta_key'		=> 'featured',
 				'meta_value'	=> true
 			);
@@ -256,57 +256,44 @@ get_header(); ?>
 
         <?php
 
-		$args = array(
-		    'posts_per_page'   => -1,
-		    'category'         => 5,
-		    'orderby'          => 'name',
-		    'order'            => 'ASC',
-		    'post_type'        => 'post'
-		);
 
-		$posts = get_posts($args);
-		?>
-		
-		<pre>
-		<?php
-		print_r(var_dump($posts));
-		?>
-		</pre>
-		<?php
+		function get_guides() {
+			$args = array(
+				'numberposts'	=> -1,
+				'post_type'		=> 'guides',
+				'meta_key'		=> 'order',
+				'orderby'		=> 'meta_value',
+				'order'			=> 'ASC'
+			);
 
-		// function get_guides() {
-		// 	$args = array(
-		// 		'numberposts'	=> -1,
-		// 		'post_type'		=> 'post'
-		// 	);
+			$guides = new WP_Query($args);
+			return $guides;			
+		}
 
-		// 	$guides = new WP_Query($args);
-		// 	return $guides;			
-		// }
-
-		// $guides = get_guides();
-
-		// if( $guides->have_posts() ):
-		// 	$i = 0;
-		// 	$guides_nums = $guides->post_count;
-
-		// endif;
-        ?>
-
-
-		<?php
 		$guides = get_guides();
-		foreach ($guides as $nickname => $guide) {
+
+		if( $guides->have_posts() ):
+			$i = 0;
+			$guides_nums = $guides->post_count;
+
+		endif;
+
+
+
+		while ( $guides->have_posts() ):
+			$guides->the_post();
 		?>
             <div class="col-md-4 col-12 mb-3 text-center">
                 <div class="guide">
-                    <img class="w-75 rounded-circle mb-35" src="<?= get_theme_file_uri('assets/images/guides/').$guide['img'] ?>" alt="">
-                    <div class="guide-name font-weight-bold text-center mb-1"><?= $guide['name'] ?></div>
-                    <div class="guide-desc mb-4"><?= $guide['description'] ?></div>
-                    <div class="guide-socials"><a href="<?= $guide['facebook'] ?>">Facebook</a><a href="<?= $guide['instagram'] ?>">Instagram</a></div>
+                    <img class="w-75 rounded-circle mb-35" src="<?= get_the_post_thumbnail_url(); ?>" alt="">
+                    <div class="guide-name font-weight-bold text-center mb-1"><?= the_title(); ?></div>
+                    <div class="guide-desc mb-4"><?= the_content() ?></div>
+                    <div class="guide-socials"><a href="<?= the_field('facebook'); ?>">Facebook</a><a href="<?= the_field('instagram'); ?>">Instagram</a></div>
                 </div>
             </div>
-  		<?php } ?>
+  		<?php
+  		endwhile;
+  		?>
         </div>
 
         <!-- Tours block -->
