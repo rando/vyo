@@ -14,47 +14,74 @@
 
 get_header(); ?>
 
-    <!-- Featured Tours Carousel -->
-    <div id="carousel-header-cover" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
+
+<?php
+// $args = array(
+// 	'numberposts'	=> -1,
+// 	'post_type'		=> 'post',
+// 	'meta_key'		=> 'featured',
+// 	'meta_value'	=> true
+// );
+
+// $featured = new WP_Query( $args );
+
+// if( $featured->have_posts() ):
+// 	while( $featured->have_posts() ):
+// 		$featured->the_post();
+// 		the_field('price');
+// 		the_title();
+// 	endwhile;
+// endif; 
+?>
+
+<?php wp_reset_query(); ?>
+
+
+
+
+
+
+
+
+
 		
 		<?php
 
 		// TODO Mocked function
-		function get_featured_posts() {
-			return $posts = array(
-					    0 => array(
-					    	'id' => '10',
-					    	'url' => 'everest',
-					    	'img' => '1.jpg',
-					    	'name' => 'Побачити Еверест',
-					    	'countries' => ['Непал'],
-					    	'date' => '03 квітня - 25 квітня 2018',
-					    	'days' => '15 днів',
-					    	'price' => '885$'
-					    	),
-					    1 => array(
-					    	'id' => '12',
-					    	'url' => 'montblanc',
-					    	'img' => '2.jpg',
-					    	'name' => 'Навколо Монблану',
-					    	'countries' => ['Швейцарія', 'Франція', 'Італія'],
-					    	'date' => '23 червня - 30 червня 2018',
-					    	'days' => '7 днів',
-					    	'price' => '790€'
-					    	),
-					    1 => array(
-					    	'id' => '13',
-					    	'url' => 'china',
-					    	'img' => '3.jpg',
-					    	'name' => 'Від Гонконгу до Пекіну',
-					    	'countries' => ['Китай'],
-					    	'date' => '28 квітня - 13 травня 2018',
-					    	'days' => '15 днів',
-					    	'price' => '980$'
-					    	)
-					);
-		}
+		// function get_featured_posts() {
+		// 	return $posts = array(
+		// 			    0 => array(
+		// 			    	'id' => '10',
+		// 			    	'url' => 'everest',
+		// 			    	'img' => '1.jpg',
+		// 			    	'name' => 'Побачити Еверест',
+		// 			    	'countries' => ['Непал'],
+		// 			    	'date' => '03 квітня - 25 квітня 2018',
+		// 			    	'days' => '15 днів',
+		// 			    	'price' => '885$'
+		// 			    	),
+		// 			    1 => array(
+		// 			    	'id' => '12',
+		// 			    	'url' => 'montblanc',
+		// 			    	'img' => '2.jpg',
+		// 			    	'name' => 'Навколо Монблану',
+		// 			    	'countries' => ['Швейцарія', 'Франція', 'Італія'],
+		// 			    	'date' => '23 червня - 30 червня 2018',
+		// 			    	'days' => '7 днів',
+		// 			    	'price' => '790€'
+		// 			    	),
+		// 			    1 => array(
+		// 			    	'id' => '13',
+		// 			    	'url' => 'china',
+		// 			    	'img' => '3.jpg',
+		// 			    	'name' => 'Від Гонконгу до Пекіну',
+		// 			    	'countries' => ['Китай'],
+		// 			    	'date' => '28 квітня - 13 травня 2018',
+		// 			    	'days' => '15 днів',
+		// 			    	'price' => '980$'
+		// 			    	)
+		// 			);
+		// }
 
 		function get_tours() {
 			$tours = 
@@ -67,7 +94,18 @@ get_header(); ?>
 		function get_reviewers() {
 			$reviewers = 
 				array(
-					0 => array()
+					'nfedorova' => array(
+						'name' => 'Наталя Чистякова',
+						'description' => 'Організатор Lviv Travel Club',
+						'review' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet aperiam minima ipsa aspernatur suscipit veritatis unde quasi soluta consequatur, odit maiores explicabo ullam exercitationem laborum impedit voluptate ipsam inventore optio.',
+						'img' => 'nchystiakova.jpg'
+					),
+					'mstriltsiv' => array(
+						'name' => 'Маріан Стрільців',
+						'description' => 'Фотограф, журналіст',
+						'review' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet aperiam minima ipsa aspernatur suscipit veritatis unde quasi soluta consequatur, odit maiores explicabo ullam exercitationem laborum impedit voluptate ipsam inventore optio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat iusto a maiores commodi enim ea odio nemo earum ipsum dolorum nobis vero soluta ullam ex beatae eum necessitatibus quidem, fugit.',
+						'img' => 'mstriltsiv.jpg'
+					),
 				);
 			return $reviewers;
 		}
@@ -107,35 +145,76 @@ get_header(); ?>
 			return  $guides;
 		}
 
-		$featured_posts = get_featured_posts();
-		foreach ($featured_posts as $i=>$featured_post) {
+		//$featured_posts = get_featured_posts();
+		//foreach ($featured_posts as $i=>$featured_post) {
+
+		function get_featured_posts() {
+			$args = array(
+				'numberposts'	=> -1,
+				'post_type'		=> 'post',
+				'meta_key'		=> 'featured',
+				'meta_value'	=> true
+			);
+
+			$featured = new WP_Query($args);
+			return $featured;			
+		}
+
+		$featured = get_featured_posts();
+
+		if( $featured->have_posts() ):
+			$i = 0;
+			$posts_nums = $featured->post_count;
+
+
+		endif; 
 		?>
+
+    <!-- Featured Tours Carousel -->
+    <div id="carousel-header-cover" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+      	<?php 
+      	while ($i < $posts_nums): 
+      	?>
         <li data-target="#carousel-header-cover" data-slide-to="<?= $i ?>" class="<?= ($i == 0) ? "active" : "" ?>"></li>
-		<?php } ?>
+   		<?php 
+   		$i++;
+   		endwhile; 
+   		?>
       </ol>
+
       <div class="carousel-inner">
 		<?php
-		foreach ($featured_posts as $i=>$post) {
+		$i = 0;
+		while ( $featured->have_posts() ):
+			$featured->the_post();
 		?>
 
         <div class="carousel-item <?= ($i == 0) ? "active" : "" ?>">
           <div class="shadow-top"></div>
           <div class="shadow-bottom"></div>
-          <img class="d-block w-100" src="<?= get_theme_file_uri('assets/images/') . $post['img'] ?>" alt="First slide">
-          <div class="carousel-caption d-none d-block">
+          <img class="d-block w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt="First slide">
+          <div class="carousel-caption d-none d-block h-85">
           	<!-- TODO: Add days wording -->
-            <p class="tour-date font-weight-bold m-2"><?= $post['date'] ?>(<?= $post['days'] ?>)</p>
-            <p class="tour-countries mb-5"><?= join(', ', $post['countries']) ?></p>
-            <h3 class="tour-name mb-4"><a href="#"><?= $post['name'] ?></a></h3>
-            <p class="tour-price font-weight-bold mb-4"><?= $post['price'] ?></p>
-            <a href="/<?= $post['url'] ?>" role="button" class="btn btn-outline-vyo-lt mb-4">ВЙО!</a>
+          	<div class="d-flex align-items-center flex-column justify-content-between h-100 mt-4">
+	            <div class="tour-date font-weight-bold mb-3"><?= the_field('date-start') ?> - <?= the_field('date-end') ?> (<?= the_field('days-num') ?> days)</div>
+	            <div class="tour-countries mb-md-6"><?= the_field('countries') ?></div>
+	            <div class="mt-auto"><h3 class="tour-name mb-3"><a href="<?= the_permalink(); ?>"><?= the_title(); ?></a></h3></div>
+	            <div class="mt-auto mb-6">
+		            <p class="tour-price font-weight-bold mb-3"><?= the_field('price') ?> <?= the_field('currency'); ?></p>
+		            <a href="<?= the_permalink() ?>" role="button" class="btn btn-outline-vyo-lt">ВЙО!</a>
+	            </div>
+            </div>
           </div>
         </div>
 
 		<?php
-		}
+		$i++;
+		endwhile;
+		wp_reset_query();
 		?>
       </div>
+
       <a class="carousel-control-prev" href="#carousel-header-cover" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Попередній</span>
@@ -154,7 +233,9 @@ get_header(); ?>
                 <h1>Про нас</h1>
             </div>
             <div class="w-100"></div>
-            <div class="col-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam sint, eius aliquam sequi eos fugiat molestias, in temporibus illum aliquid reiciendis iste obcaecati saepe et eveniet, alias ipsam, culpa beatae! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis praesentium neque iure impedit sequi, suscipit vero quis unde cum? Beatae soluta dolorem laborum quidem maxime repellendus dolor minus fugit in.</div>
+            <div class="col-8">
+
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam sint, eius aliquam sequi eos fugiat molestias, in temporibus illum aliquid reiciendis iste obcaecati saepe et eveniet, alias ipsam, culpa beatae! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis praesentium neque iure impedit sequi, suscipit vero quis unde cum? Beatae soluta dolorem laborum quidem maxime repellendus dolor minus fugit in.</div>
         </div>
 
         <!-- TODO: VIDEO about US. -->
@@ -171,6 +252,48 @@ get_header(); ?>
                 <h1>Наші Гіди</h1>
             </div>
             <div class="w-100"></div>
+        
+
+        <?php
+
+		$args = array(
+		    'posts_per_page'   => -1,
+		    'category'         => 5,
+		    'orderby'          => 'name',
+		    'order'            => 'ASC',
+		    'post_type'        => 'post'
+		);
+
+		$posts = get_posts($args);
+		?>
+		
+		<pre>
+		<?php
+		print_r(var_dump($posts));
+		?>
+		</pre>
+		<?php
+
+		// function get_guides() {
+		// 	$args = array(
+		// 		'numberposts'	=> -1,
+		// 		'post_type'		=> 'post'
+		// 	);
+
+		// 	$guides = new WP_Query($args);
+		// 	return $guides;			
+		// }
+
+		// $guides = get_guides();
+
+		// if( $guides->have_posts() ):
+		// 	$i = 0;
+		// 	$guides_nums = $guides->post_count;
+
+		// endif;
+        ?>
+
+
 		<?php
 		$guides = get_guides();
 		foreach ($guides as $nickname => $guide) {
@@ -184,7 +307,6 @@ get_header(); ?>
                 </div>
             </div>
   		<?php } ?>
-            </div>
         </div>
 
         <!-- Tours block -->
@@ -278,33 +400,40 @@ get_header(); ?>
 
     <div id="carousel-review" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
-        <li data-target="#carousel-review" data-slide-to="0" class="active"></li>
-         <li data-target="#carousel-review" data-slide-to="1"></li>
+	    <?php 
+	    $reviewers = get_reviewers();
+	    $i = 0;
+	    foreach ($reviewers as $nickname => $reviewer) {
+	    ?>
+        	<li data-target="#carousel-review" data-slide-to="<?= $i; ?>" class="<?= ($i == 0) ? "active" : "" ?>"></li>
+		<?php
+		$i++;
+		}
+		?>
       </ol>
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="<?= get_theme_file_uri('assets/images/static/') ?>empty.png" alt="First slide">
-          <div class="carousel-caption d-none d-block">
-            <div class="review-img mb-4">
-                <img class="d-block rounded-circle" src="<?= get_theme_file_uri('assets/images/reviewers/') ?>nchystiakova.jpg" alt="First slide">
-            </div>
-            <div class="reviewer font-weight-bold">Наталя Чистякова</div>
-            <div class="mb-5">Організатор Lviv Travel Club</div>
-            <p class="font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore necessitatibus sequi soluta quibusdam, amet asperiores qui unde pisicing elit. Culpa itaque aliquid facilis ullam aspernatur magnam atque ipsa ut perspiciatis, voluptatem numquam maiores reiciendis modi. Maxime fugiat beatae ea laboriosam sunt.</p>
-          </div>
-        </div>
 
-        <div class="carousel-item">
-          <img class="d-block w-100" src="<?= get_theme_file_uri('assets/images/static/') ?>empty.png" alt="First slide">
-          <div class="carousel-caption d-none d-block">
-            <div class="review-img mb-4">
-                <img class="d-block rounded-circle" src="<?= get_theme_file_uri('assets/images/reviewers/') ?>mstriltsiv.jpg" alt="First slide">
-            </div>
-            <div class="reviewer font-weight-bold">Маріан Стрільців</div>
-            <div class="mb-5">Фотограф, Турбат</div>
-            <p class="font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore necessitatibus sequi soluta quibusdam, amet asperiores qui unde maiores minus nobis ipsam accusantium numquam doloremque, molestiae reprehenderit natus nihil ut? Quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eligendi magni maxime, odio dolor obcaecati repellat aperiam ducimus praesentium. Veniam, quibusdam nihil molestias quae porro voluptate repudiandae sed sit cupiditate! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa itaque aliquid facilis ullam aspernatur magnam atque ipsa ut perspiciatis, voluptatem numquam maiores reiciendis modi. Maxime fugiat beatae ea laboriosam sunt.</p>
-          </div>
-        </div>
+    <?php 
+    $reviewers = get_reviewers();
+    $i = 0;
+    foreach ($reviewers as $nickname => $reviewer) {
+    ?>
+		<div class="carousel-item <?= ($i == 0) ? "active" : "" ?>">
+			<img class="d-block w-100" src="<?= get_theme_file_uri('assets/images/static/') ?>empty.png" alt="First slide">
+			<div class="carousel-caption d-none d-block">
+				<div class="review-img mb-4">
+					<img class="d-block rounded-circle" src="<?= get_theme_file_uri('assets/images/reviewers/') . $reviewer['img'] ?>" alt="First slide">
+				</div>
+				<div class="reviewer font-weight-bold"><?= $reviewer['name'] ?></div>
+				<div class="mb-5"><?= $reviewer['description'] ?></div>
+				<p class="font-italic">L<?= $reviewer['review'] ?></p>
+			</div>
+		</div>
+	<?php
+	$i++;
+	}
+	?>
+
       </div>
       <a class="carousel-control-prev" href="#carousel-review" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -1732,6 +1732,10 @@ a.bg-vyo-dr:focus, a.bg-vyo-dr:hover {
     width: 75% !important;
 }
 
+.w-85 {
+    width: 85% !important;
+}
+
 .w-100 {
     width: 100% !important;
 }
@@ -1746,6 +1750,10 @@ a.bg-vyo-dr:focus, a.bg-vyo-dr:hover {
 
 .h-75 {
     height: 75% !important;
+}
+
+.h-85 {
+    height: 85% !important;
 }
 
 .h-100 {
@@ -7810,7 +7818,7 @@ body {
 
 .btn-outline-vyo-lt {
     border: 4px solid #fff;
-    transition: border 500ms ease-out;
+    transition: border 200ms ease-out, background-color 500ms ease-out;
 }
 
 .btn-outline-vyo-dr {
@@ -7834,7 +7842,9 @@ body {
 }
 
 #carousel-header-cover:hover .btn-outline-vyo-lt {
-    border-color: green;
+    border-color: #4BAF6A;
+    background-color: #4BAF6A;
+    color: #fff;
 }
 
 #carousel-header-cover .carousel-inner .shadow-top {
@@ -7922,8 +7932,16 @@ body {
     font-size: 1.5rem;
 }
 
+.tours button {
+    transition: border 500ms ease-out;
+}
+
 .tours .tour-container {
     padding: 5px;
+}
+
+.tours .tour-container:hover button {
+    border-color: green;
 }
 
 .tours .tour-container .tour {

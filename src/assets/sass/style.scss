@@ -1,12 +1,13 @@
-@import '../../../node_modules/bootstrap/scss/bootstrap-reboot';
-@import '../../../node_modules/bootstrap/scss/_utilities';
-@import '../../../node_modules/bootstrap/scss/_grid';
-@import '../../../node_modules/bootstrap/scss/_transitions';
-@import '../../../node_modules/bootstrap/scss/_dropdown';
-@import '../../../node_modules/bootstrap/scss/_forms';
-@import '../../../node_modules/bootstrap/scss/_buttons';
-@import '../../../node_modules/bootstrap/scss/_carousel';	
-@import '../../../node_modules/bootstrap/scss/_navbar';
+@import '../bootstrap/scss/bootstrap-reboot';
+@import '../bootstrap/scss/_utilities';
+@import '../bootstrap/scss/_grid';
+@import '../bootstrap/scss/_transitions';
+@import '../bootstrap/scss/_dropdown';
+@import '../bootstrap/scss/_forms';
+@import '../bootstrap/scss/_buttons';
+@import '../bootstrap/scss/_carousel';	
+@import '../bootstrap/scss/_navbar';
+
 
 $default_font_size: 16;
 
@@ -90,7 +91,7 @@ body {
 
 .btn-outline-vyo-lt {
 	border: 4px solid $white;
-	transition : border 500ms ease-out;
+	transition : border 200ms ease-out, background-color 500ms ease-out; 
 }
 
 .btn-outline-vyo-dr {
@@ -117,7 +118,9 @@ body {
 
 	&:hover {
 		.btn-outline-vyo-lt {
-			border-color: green;
+			border-color: #4BAF6A;
+			background-color: #4BAF6A;
+			color: $white;
 		}
 	}
 	.carousel-inner {
@@ -215,8 +218,17 @@ body {
 }
 
 .tours {
+	button {
+		transition : border 500ms ease-out;
+	}
 	.tour-container {
 		padding: 5px;
+
+		&:hover {
+			button {
+				border-color: green;
+			}
+		}
 
 		.tour {
 			border-radius: 40px;
