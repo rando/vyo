@@ -8085,3 +8085,57 @@ body {
     width: 33px;
     height: 33px;
 }
+
+.tour-caption {
+    width: 100%;
+    height: 260px;
+    margin: 0;
+    padding: 0 !important;
+}
+
+.tour-caption .image-wrap {
+    position: relative;
+    display: inline-block;
+    height: 260px;
+    vertical-align: middle;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.tour-caption .image-wrap img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    object-position: 50% 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tour-caption .image-wrap .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.11) 0%, rgba(0, 0, 0, 0.64) 100%);
+}
+
+.tour-caption .image-content {
+    position: relative;
+    top: -260px;
+    z-index: 2;
+}
+
+.tour-caption .image-content .countries {
+    padding: 45px 0 0 0;
+    color: #FFFFFF;
+    font-size: 26px;
+    line-height: 36px;
+}
+
+.tour-caption .image-content .entry-title {
+    color: #FFFFFF;
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 60px;
+}
