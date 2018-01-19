@@ -18,21 +18,7 @@ get_header(); ?>
 
 			<div class="post-thumbnail">
 
-			<?php
-			while ( have_posts() ): the_post(); 
-				echo get_post_format();
-				if (get_post_format() == 'gallery') {
-					echo "Gallery";
-				}
-				get_template_part( 'template-parts/post/content', get_post_format() );
-			endwhile;
-			?>
 
-			<pre>
-			<?php
-			print_r(get_fields());
-			?>
-			</pre>
 
 				<?php the_post_thumbnail( 'twentyseventeen-featured-image' ); ?>	
 			</div>
@@ -66,9 +52,6 @@ get_header(); ?>
 			<h2><?= get_field('included'); ?></h2>
 			<h2><?= get_field('not-included'); ?></h2>
 
-			<?php
-			print("<pre>".print_r(get_field('gallery'), true)."</pre>");
-			?>
 
 			<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dolore, excepturi quasi vitae esse sint dicta aliquam id quas, temporibus libero amet quaerat alias commodi itaque consectetur eveniet doloremque animi!</h1>
 
@@ -76,14 +59,6 @@ get_header(); ?>
 			print("<pre>".print_r(get_field('days'), true)."</pre>");
 			?>
 
-		<?php
-		wp_link_pages( array(
-			'before'      => '<div class="page-links">' . __( 'Pages:', 'twentyseventeen' ),
-			'after'       => '</div>',
-			'link_before' => '<span class="page-number">',
-			'link_after'  => '</span>',
-		) );
-		?>
 
 			
 
