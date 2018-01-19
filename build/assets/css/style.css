@@ -8027,6 +8027,11 @@ body {
     width: 160px;
 }
 
+#carousel-review .review-block {
+    height: 150px;
+    overflow: hidden;
+}
+
 .subscribe {
     background: linear-gradient(rgba(32, 102, 180, 0.8), rgba(32, 102, 180, 0.8)), url("../images/static/subscribe-bg.jpg");
 }

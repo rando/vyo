@@ -12,8 +12,6 @@
 
 get_header(); ?>
 
-<div class="post-thumbnail">
-
 <?php
 while ( have_posts() ): the_post(); 
 	echo get_post_format();
@@ -39,6 +37,7 @@ endwhile;
 	?>
 	</pre>
 
+	<div class="post-thumbnail">
 		<?php the_post_thumbnail( 'twentyseventeen-featured-image' ); ?>	
 	</div>
 	
