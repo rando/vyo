@@ -26,6 +26,8 @@
 <meta name="format-detection" content="telephone=no">
 
 <link rel="profile" href="http://gmpg.org/xfn/11">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600i,700,700i,800&amp;subset=cyrillic" rel="stylesheet">
+
 
 <?php wp_head(); ?>
 </head>
@@ -53,7 +55,7 @@ if ( is_front_page() ) {
                         <a class="m-2" href="#">Контакти</a href="#">
                 </div>
                 <div class="col-12 d-none d-sm-none d-md-block col-md-3 text-md-right text-center pt-3">
-                    <a href="https://instagram.com/vyo.travel"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a>
+                    <a href="https://facebook.com/vyo.travel"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>facebook-light.png" alt=""></a>
                     <a href="https://instagram.com/vyo.travel"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a>
                 </div>
             </div>

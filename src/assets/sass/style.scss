@@ -15,7 +15,7 @@ html {
 	font-size: 14px;
 }
 
-*, html {
+*, html, body {
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -218,14 +218,15 @@ body {
 }
 
 .tours {
-	button {
+	.btn {
 		transition : border 500ms ease-out;
 	}
+
 	.tour-container {
 		padding: 5px;
 
 		&:hover {
-			button {
+			a.btn {
 				border-color: green;
 			}
 		}
@@ -251,6 +252,14 @@ body {
 
 			h3 {
 				font-size: 1.75rem;
+
+		        a {
+		        	color: $dark;
+
+		        	&:hover {
+		        		text-decoration: none;
+		        	}
+		        }
 			}
 
 			.tour-name {
@@ -258,6 +267,11 @@ body {
 				overflow: hidden;
 				line-height: 35px;
 
+			}
+
+			.tour-bottom {
+				position: absolute;
+				bottom: 30px;
 			}
 		}		
 	}

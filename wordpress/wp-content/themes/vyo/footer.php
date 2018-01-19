@@ -39,25 +39,17 @@
 
     <div class="container-fluid footer p-5">
         <div class="row no-gutter footer-menu mb-5 mt-2 justify-content-center">
-            <div class="col-12 col-sm-2 col-md-1 px-0 text-center">
-                <a class="active" href="#">Головна</a>
-            </div>
-            <div class="col-12 col-sm-2 col-md-1 px-0 text-center">
-                <a href="#">Мандрівки</a>
-            </div>
-            <div class="col-12 col-sm-2 col-md-1 px-0 text-center">
-                <a href="#">Блог</a>
-            </div>
-            <div class="col-12 col-sm-2 col-md-1 px-0 text-center">
-                <a href="#">Про нас</a>
-            </div>
-            <div class="col-12 col-sm-2 col-md-1 px-0 text-center">
-                <a href="#">Контакти</a>
+            <div class="col-12 col-md-6 text-md-center text-center menu">
+                <a class="m-2 active" href="#">Головна</a href="#">
+                <a class="m-2" href="#">Мандрівки</a href="#">
+                <a class="m-2" href="#">Блог</a href="#">
+                <a class="m-2" href="#">Про нас</a href="#">
+                <a class="m-2" href="#">Контакти</a href="#">
             </div>
         </div>
 
         <div class="row no-gutter socials mb-5 justify-content-center">
-            <div class="col-6 col-sm-1 p-2 text-right"><a href="https://instagram.com/vyo.travel"><img src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a></div>
+            <div class="col-6 col-sm-1 p-2 text-right"><a href="https://facebook.com/vyo.travel"><img src="<?= get_theme_file_uri('assets/images/static/') ?>facebook-light.png" alt=""></a></div>
             <div class="col-6 col-sm-1 p-2 text-left"><a href="https://instagram.com/vyo.travel"><img src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a></div>
         </div>
 
