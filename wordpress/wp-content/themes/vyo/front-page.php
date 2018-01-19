@@ -64,11 +64,17 @@ get_header(); ?>
 	}
 
 	function get_tours() {
-		$tours = 
-			array(
-				0 => array()
-			);
-		return $tours;
+		$args = array(
+			'numberposts'	=> 6,
+			'post_type'		=> 'tours',
+			'meta_key'		=> 'date-start',
+			'orderby'		=> 'meta_value',
+			'order'			=> 'ASC',
+			'posts_per_page'=> 6
+		);
+
+		$guides = new WP_Query($args);
+		return $guides;		
 	}
 
 	function get_reviewers() {
@@ -81,9 +87,6 @@ get_header(); ?>
 		return $reviewers;			
 	}
 ?>
-
-
-
 
 
 
@@ -274,6 +277,13 @@ get_header(); ?>
         </div>
 
         <!-- Tours block -->
+		
+		<pre>
+        <?php
+        $tours = get_tours();
+        print_r($tours); 
+        ?>
+        </pre>
 
         <div class="row mb-5 no-gutters tours">
             <div class="col-12 text-center"><h1>Найближчі Подорожі</h1></div>
