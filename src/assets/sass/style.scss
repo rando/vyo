@@ -393,7 +393,6 @@ body {
 	height: 260px;
 	margin: 0;
 	padding: 0 !important;
-	background: linear-gradient(180deg, rgba(0,0,0,0.11) 0%, rgba(0,0,0,0.64) 100%);
 
 	.image-wrap {
 		position: relative;
@@ -402,7 +401,7 @@ body {
 	    vertical-align: middle;
 	    overflow: hidden;
 	    z-index: 1;
-		
+
 		img {
 			height: 100%;
 			width: auto;
@@ -411,11 +410,34 @@ body {
 			display: inline-block;
 			vertical-align: middle;
 		}
+
+	    .mask {
+	    	position: absolute;
+	    	top: 0;
+	    	left: 0;
+	    	width: 100%;
+	    	height: 100%;
+	    	background: linear-gradient(180deg, rgba(0,0,0,0.11) 0%, rgba(0,0,0,0.64) 100%);
+	    }
 	}
 
-	.content {
+	.image-content {
 		position: relative;
 		top: -260px;
-		z-index: 2;		
+		z-index: 2;
+
+		.countries {
+			padding: 45px 0 0 0;
+			color: #FFFFFF;
+			font-size: 26px;
+			line-height: 36px;
+		}
+
+		.entry-title {
+			color: #FFFFFF;
+			font-size: 64px;
+			font-weight: bold;
+			line-height: 60px;
+		}
 	}
 }

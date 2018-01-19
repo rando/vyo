@@ -21,8 +21,9 @@
 	<header class="entry-header tour-caption">
 		<div class="image-wrap">
 			<img src="<?= get_field('tour-covered-image') ?>" alt="<?= the_title(); ?>">
+			<div class="mask"></div>
 		</div>
-		<div class="content">
+		<div class="image-content">
 			<div class="container">
 				<h2 class="countries"><?= the_field('countries'); ?></h2>
 
