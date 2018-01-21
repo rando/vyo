@@ -147,7 +147,7 @@
 			<?php
 			if ($day_images):
 			?>
-			<div class="col-9 day-photos">
+			<div class="col-12 day-photos">
 				<div class="row gallery">
 					<div class="col-12">
 						<?php
@@ -210,16 +210,6 @@
 				<?php
 				endforeach
 				?>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-9">
-				<pre>
-					<?php
-					print_r($images);
-					?>
-				</pre>
 			</div>
 		</div>
 	</div>
