@@ -10,6 +10,7 @@
 
 
 $default_font_size: 16;
+$lime: #4BAF6A;
 
 html {
 	font-size: 14px;
@@ -99,6 +100,17 @@ body {
 
 	&:hover {
 		color: $dark;
+		text-decoration: none;
+	}
+}
+
+.btn-outline-vyo-green {
+	border-color: $lime;
+	background-color: $lime;
+	color: $white;
+
+	&:hover {
+		color: $white;
 		text-decoration: none;
 	}
 }
@@ -227,7 +239,7 @@ body {
 
 		&:hover {
 			a.btn {
-				border-color: green;
+				border-color: $lime;
 			}
 		}
 
@@ -418,7 +430,7 @@ body {
 
 		img {
 			height: 100%;
-			width: auto;
+			width: 100%;
 			object-fit: cover;
 			object-position: 50% 50%;
 			display: inline-block;
@@ -443,15 +455,76 @@ body {
 		.countries {
 			padding: 45px 0 0 0;
 			color: #FFFFFF;
-			font-size: 26px;
+			font-size: 1.5rem;
 			line-height: 36px;
 		}
 
 		.entry-title {
 			color: #FFFFFF;
-			font-size: 64px;
+			font-size: 4.25rem;
 			font-weight: bold;
 			line-height: 60px;
 		}
 	}
+}
+
+.tour-detail-fixed {
+	.tour-order {
+		a {
+			width: 100px;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+	}
+
+	.tour-price, .tour-dates {
+		font-size: 1.5rem;
+	}
+
+	.tour-price {
+		color: $lime;
+	}
+}
+
+.tour-line {
+	height: 1px;
+	width: 100%;
+	border: 1px solid $gray-300;
+}
+
+.tour {
+	h3 {
+		font-size: 2rem;
+		font-weight: bold;
+	}
+
+	ul {
+		list-style-type: none;
+		li {
+			margin-left: 6px;
+			text-indent: -5px;
+			line-height: 2.5rem;
+
+			&:before {
+				content: "- ";
+  				text-indent: -5px;
+			}
+		}
+	}
+}
+
+.black-circle, .grey-circle {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0 3px;
+}
+
+.black-circle {
+	background-color: $black;
+}
+
+.grey-circle {
+	background-color: #C9C9C9;
 }

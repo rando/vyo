@@ -7830,6 +7830,17 @@ body {
     text-decoration: none;
 }
 
+.btn-outline-vyo-green {
+    border-color: #4BAF6A;
+    background-color: #4BAF6A;
+    color: #fff;
+}
+
+.btn-outline-vyo-green:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 .btn-vyo-black {
     background-color: #000;
     color: #fff;
@@ -7941,7 +7952,7 @@ body {
 }
 
 .tours .tour-container:hover a.btn {
-    border-color: green;
+    border-color: #4BAF6A;
 }
 
 .tours .tour-container .tour {
@@ -8117,7 +8128,7 @@ body {
 
 .tour-caption .image-wrap img {
     height: 100%;
-    width: auto;
+    width: 100%;
     object-fit: cover;
     object-position: 50% 50%;
     display: inline-block;
@@ -8142,13 +8153,69 @@ body {
 .tour-caption .image-content .countries {
     padding: 45px 0 0 0;
     color: #FFFFFF;
-    font-size: 26px;
+    font-size: 1.5rem;
     line-height: 36px;
 }
 
 .tour-caption .image-content .entry-title {
     color: #FFFFFF;
-    font-size: 64px;
+    font-size: 4.25rem;
     font-weight: bold;
     line-height: 60px;
+}
+
+.tour-detail-fixed .tour-order a {
+    width: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.tour-detail-fixed .tour-price, .tour-detail-fixed .tour-dates {
+    font-size: 1.5rem;
+}
+
+.tour-detail-fixed .tour-price {
+    color: #4BAF6A;
+}
+
+.tour-line {
+    height: 1px;
+    width: 100%;
+    border: 1px solid #dee2e6;
+}
+
+.tour h3 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.tour ul {
+    list-style-type: none;
+}
+
+.tour ul li {
+    margin-left: 6px;
+    text-indent: -5px;
+    line-height: 2.5rem;
+}
+
+.tour ul li:before {
+    content: "- ";
+    text-indent: -5px;
+}
+
+.black-circle, .grey-circle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.black-circle {
+    background-color: #000;
+}
+
+.grey-circle {
+    background-color: #C9C9C9;
 }

@@ -14,10 +14,6 @@ get_header(); ?>
 
 <?php
 while ( have_posts() ): the_post(); 
-	echo get_post_format();
-	if (get_post_format() == 'gallery') {
-		echo "Gallery";
-	}
 	//tour
 	if (true) {
 		get_template_part( 'post-type-templates/tour' );
@@ -26,16 +22,17 @@ while ( have_posts() ): the_post();
 	if (false) {
 
 	}
+
+	// page = contact, about us, ...
+	// if () {
+
+	// }
 endwhile;
 ?>
-
+<!-- 
 <div class="container" role="main">
 
-	<pre>
-	<?php
-	print_r(get_fields());
-	?>
-	</pre>
+
 
 	<div class="post-thumbnail">
 		<?php the_post_thumbnail( 'twentyseventeen-featured-image' ); ?>	
@@ -71,13 +68,13 @@ endwhile;
 	<h2><?= get_field('not-included'); ?></h2>
 
 	<?php
-	print("<pre>".print_r(get_field('gallery'), true)."</pre>");
+	//print("<pre>".print_r(get_field('gallery'), true)."</pre>");
 	?>
 
 	<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dolore, excepturi quasi vitae esse sint dicta aliquam id quas, temporibus libero amet quaerat alias commodi itaque consectetur eveniet doloremque animi!</h1>
 
 	<?php
-	print("<pre>".print_r(get_field('days'), true)."</pre>");
+	//print("<pre>".print_r(get_field('days'), true)."</pre>");
 	?>
 
 <?php
@@ -110,6 +107,6 @@ wp_link_pages( array(
 	endwhile; // End of the loop.*/
 	?>
 
-</div><!-- .container -->
+</div><!-- .container --> -->
 
 <?php get_footer();
