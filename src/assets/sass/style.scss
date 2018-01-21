@@ -511,6 +511,14 @@ body {
 			}
 		}
 	}
+
+	.gallery {
+		img {
+			margin: 10px;
+			border-radius: 25px;
+			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
+		}
+	}
 }
 
 .black-circle, .grey-circle {

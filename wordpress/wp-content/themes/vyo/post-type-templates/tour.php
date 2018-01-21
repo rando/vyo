@@ -13,32 +13,41 @@
 ?>
 
 <?php
-  function get_readable_countries($countries) {
-    $all_countries = array();
-    foreach ($countries as $idx => $country) {
-      array_push($all_countries, $country->name);
-    }
-    return join(', ', $all_countries);
-  }
+	function get_readable_countries($countries) {
+		$all_countries = array();
+		foreach ($countries as $idx => $country) {
+			array_push($all_countries, $country->name);
+		}
+		return join(', ', $all_countries);
+	}
 
-  function draw_circle($number) {
-  	$output_html = "";
-  	$black = '<span class="black-circle"></span>';
-  	$grey = '<span class="grey-circle"></span>';
+	function draw_circle($number) {
+		$output_html = "";
+		$black = '<span class="black-circle"></span>';
+		$grey = '<span class="grey-circle"></span>';
 
-  	$max_number = 5;
-  	$i = 0;
-  	while ($i < $max_number) {
-  		if ($number > $i) {
-  			$output_html .= $black;
-  		}
-  		else {
-  			$output_html .= $grey;
-  		}
-  		$i++;
-  	}
-  	return $output_html;
-  }
+		$max_number = 5;
+		$i = 0;
+		while ($i < $max_number) {
+			if ($number > $i) {
+				$output_html .= $black;
+			}
+			else {
+				$output_html .= $grey;
+			}
+			$i++;
+		}
+		return $output_html;
+	}
+
+	function get_li_elements($field) {
+		$fields_raw = explode('<br />', $field);
+		$fields_output = "";
+		foreach ($fields_raw as $idx => $field) {
+			$fields_output .= '<li>'.trim($field).'</li>';
+		}
+		return $fields_output;
+	}
 ?>
 
 
@@ -107,20 +116,9 @@
 			</div>
 		</div>
 
-		<?php
-		function get_favorites_lis() {
-			$favorites_raw = explode('<br />', get_field('favorites'));
-			$favorites_output = "";
-			foreach ($favorites_raw as $idx => $favorite) {
-				$favorites_output .= '<li>'.trim($favorite).'</li>';
-			}
-			return $favorites_output;
-		}
-		?>
-
 		<div class="row">
 			<div class="col-9">
-				<ul><?= get_favorites_lis() ?></ul>
+				<ul><?= get_li_elements(get_field('favorites')); ?></ul>
 			</div>
 		</div>
 
@@ -136,27 +134,94 @@
 		foreach ($program_by_days as $idx => $program_day):
 			$day = $program_day['day'];
 			$program = $program_day['program'];
+			$day_images = $program_day['images'];
 		?>
+
 		<div class="row">
 			<div class="col-9">
 				<h4><?= $day ?></h4>
 			</div>
 			<div class="w-100"></div>
 			<div class="col-9"><?= $program; ?></div>
+			<div class="w-100"></div>
+			<?php
+			if ($day_images):
+			?>
+			<div class="col-9 day-photos">
+				<div class="row gallery">
+					<div class="col-12">
+						<?php
+
+						foreach ($day_images as $idx => $image):
+							$image_url = $image['sizes']['medium'];
+						?>
+						<img src="<?= $image_url ?>" alt="">
+						<?php
+						endforeach
+						?>
+					</div>
+				</div>
+			</div>
+			<?php
+			endif;
+			?>
 		</div>
 		<?php
 		endforeach;
 		?>
 
-<!-- 		<div class="row">
+		<div class="row">
+			<div class="col-9">
+				<h3>У тур включено</h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-9">
+				<ul><?= get_li_elements(get_field('included')); ?></ul>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-9">
+				<h3>У тур НЕ включено</h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-9">
+				<ul><?= get_li_elements(get_field('not-included')); ?></ul>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-9">
+				<h3>Фото</h3>
+			</div>
+		</div>
+
+		<div class="row gallery">
+			<div class="col-12">
+				<?php
+				foreach (get_field('gallery') as $idx => $image):
+					$image_url = $image['sizes']['medium'];
+				?>
+				<img src="<?= $image_url ?>" alt="">
+				<?php
+				endforeach
+				?>
+			</div>
+		</div>
+
+		<div class="row">
 			<div class="col-9">
 				<pre>
 					<?php
-					print_r(get_field('days'));
+					print_r($images);
 					?>
 				</pre>
 			</div>
-		</div> -->
+		</div>
 	</div>
 
 </article>
