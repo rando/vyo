@@ -7746,8 +7746,12 @@ html {
     font-family: 'Open Sans', sans-serif;
 }
 
-body {
+body.front-page {
     background-color: #F3F3F3;
+}
+
+body.all-page {
+    background-color: #fff;
 }
 
 .navbar-wrapper {
@@ -7785,6 +7789,19 @@ body {
     .navbar-wrapper .logo-text {
         font-size: 0.95rem !important;
     }
+}
+
+.navbar-all-pages {
+    position: relative;
+    background-color: #fff;
+}
+
+.navbar-all-pages .logo-text {
+    color: #212529;
+}
+
+.navbar-all-pages .menu a {
+    color: #212529;
 }
 
 .navbar a {
@@ -8204,15 +8221,19 @@ body {
     text-indent: -5px;
 }
 
+.tour .tour-complex-and-comfort, .tour .peoples {
+    font-size: 1.5rem;
+}
+
 .tour .gallery img {
     margin: 10px;
-    border-radius: 25px;
+    border-radius: 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .black-circle, .grey-circle {
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     display: inline-block;
     margin: 0 3px;

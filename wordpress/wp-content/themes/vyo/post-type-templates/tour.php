@@ -87,12 +87,12 @@
 					<div class="col-12"><h3>Короткий опис туру</h3></div>
 					<div class="col-12 tour-short-description"><?= the_content(); ?></div>
 					<div class="col-12 tour-complex-and-comfort">
-						<div class="row">
+						<div class="row mb-4">
 							<div class="col-6">Складність <?= draw_circle(get_field('difficult')); ?></div>
 							<div class="col-6">Комфорт <?= draw_circle(get_field('comfort')); ?></div>
 						</div>
 					</div>
-					<div class="col-12">Кількість людей: <span class="font-weight-bold"><?= get_field('peoples'); ?></span></div>
+					<div class="col-12 peoples">Кількість людей: <span class="font-weight-bold"><?= get_field('peoples'); ?></span></div>
 				</div>
 			</div>
 			<div class="col-3 text-right tour-guide">

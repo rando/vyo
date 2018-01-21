@@ -40,7 +40,7 @@
     <div class="container-fluid footer p-5">
         <div class="row no-gutter footer-menu mb-5 mt-2 justify-content-center">
             <div class="col-12 col-md-6 text-md-center text-center menu">
-                <a class="m-2 active" href="#">Головна</a href="#">
+                <a class="m-2 active" href="/">Головна</a href="#">
                 <a class="m-2" href="#">Мандрівки</a href="#">
                 <a class="m-2" href="#">Блог</a href="#">
                 <a class="m-2" href="#">Про нас</a href="#">
