@@ -12,6 +12,18 @@
 
 ?>
 
+<pre>
+	<?php
+	$countries = get_field('countries');
+	$countries_str = '';
+	print_r($countries);
+	foreach ($countries as $idx => $value) {
+		$countries_str .= $value->name.' ';
+	}
+	print_r($countries_str);
+	?>
+</pre>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
 	if ( is_sticky() && is_home() ) :
@@ -25,7 +37,7 @@
 		</div>
 		<div class="image-content">
 			<div class="container">
-				<h2 class="countries"><?= the_field('countries'); ?></h2>
+				<h2 class="countries"><?= get_field('countries')->slug; ?></h2>
 
 				<?php
 				if ( 'post' === get_post_type() ) {
