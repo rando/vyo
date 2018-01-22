@@ -39,18 +39,18 @@ if ( is_front_page() ) {
     <div class="navbar-wrapper">
         <div class="container">
             <div class="row no-gutter justify-content-between">
-                <div class="col-12 col-md-3 text-md-left text-center p-3">
+                <div class="col-12 col-md-3 d-none d-sm-none d-md-block  text-md-left text-center p-3">
                     <a href="/">
                         <img src="<?= get_theme_file_uri('assets/images/static/') ?>logo-light.png" width="60" height="44" class="d-inline-block align-middle" alt="ВЙО. Агенція пригод">
-                <span class="logo-text">Агенція пригод</span>
+                        <span class="logo-text">Агенція пригод</span>
                     </a>
                 </div>
-                <div class="col-12 col-md-6 text-md-center text-center pt-1 pt-md-475 mb-4 mb-md-0 menu">
-                        <a class="m-2 active" href="/">Головна</a href="#">
-                        <a class="m-2" href="#">Мандрівки</a href="#">
-                        <a class="m-2" href="#">Блог</a href="#">
-                        <a class="m-2" href="#">Про нас</a href="#">
-                        <a class="m-2" href="#">Контакти</a href="#">
+                <div class="col-12 col-md-6 text-md-center text-center mt-3 mt-md-0 pt-1 pt-md-475 mb-4 mb-md-0 menu">
+                        <a class="m-0 m-md-2 active" href="/">Головна</a href="#">
+                        <a class="m-0 m-md-2" href="#">Мандрівки</a href="#">
+                        <a class="m-0 m-md-2" href="#">Блог</a href="#">
+                        <a class="m-0 m-md-2" href="#">Про нас</a href="#">
+                        <a class="m-0 m-md-2" href="#">Контакти</a href="#">
                 </div>
                 <div class="col-12 d-none d-sm-none d-md-block col-md-3 text-md-right text-center pt-3">
                     <a href="https://facebook.com/vyo.travel"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>facebook-light.png" alt=""></a>
@@ -64,18 +64,18 @@ if ( is_front_page() ) {
     <div class="navbar-wrapper navbar-all-pages">
         <div class="container">
             <div class="row no-gutter justify-content-between">
-                <div class="col-12 col-md-3 text-md-left text-center p-3">
+                <div class="col-12 col-md-3 d-none d-sm-none d-md-block text-md-left text-center p-3">
                     <a href="/">
                         <img src="<?= get_theme_file_uri('assets/images/static/') ?>logo-light.png" width="60" height="44" class="d-inline-block align-middle" alt="ВЙО. Агенція пригод">
                 <span class="logo-text">Агенція пригод</span>
                     </a>
                 </div>
-                <div class="col-12 col-md-6 text-md-center text-lg-right pt-1 pt-md-475 mb-4 mb-md-0 menu">
-                    <a class="m-2 active" href="/">Головна</a href="#">
-                    <a class="m-2" href="#">Мандрівки</a href="#">
-                    <a class="m-2" href="#">Блог</a href="#">
-                    <a class="m-2" href="#">Про нас</a href="#">
-                    <a class="m-2" href="#">Контакти</a href="#">
+                <div class="col-12 col-md-6 text-md-center text-lg-right mt-3 mt-md-0 pt-1 pt-md-475 mb-4 mb-md-0 menu">
+                    <a class="m-0 m-md-2 active" href="/">Головна</a href="#">
+                    <a class="m-0 m-md-2" href="#">Мандрівки</a href="#">
+                    <a class="m-0 m-md-2" href="#">Блог</a href="#">
+                    <a class="m-0 m-md-2" href="#">Про нас</a href="#">
+                    <a class="m-0 m-md-2" href="#">Контакти</a href="#">
                     <a href="https://facebook.com/vyo.travel" class="d-none d-sm-none d-md-inline-block"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>facebook-dark.png" alt=""></a>
                     <a href="https://instagram.com/vyo.travel" class="d-none d-sm-none d-md-inline-block"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-dark.png" alt=""></a>
                 </div>

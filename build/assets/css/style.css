@@ -7793,7 +7793,7 @@ body.all-page {
 
 .navbar-all-pages {
     position: relative;
-    background-color: #fff;
+    background-color: #fff !important;
 }
 
 .navbar-all-pages .logo-text {
@@ -8178,7 +8178,15 @@ body.all-page {
     color: #FFFFFF;
     font-size: 4.25rem;
     font-weight: bold;
-    line-height: 60px;
+    line-height: 4rem;
+}
+
+@media (max-width: 1199px) {
+    .tour-caption .image-content .entry-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        line-height: 2.75rem;
+    }
 }
 
 .tour-detail-fixed .tour-order a {
@@ -8201,6 +8209,11 @@ body.all-page {
     border: 1px solid #dee2e6;
 }
 
+.tour h1 {
+    font-size: 2.75rem;
+    font-weight: bold;
+}
+
 .tour h3 {
     font-size: 2rem;
     font-weight: bold;
@@ -8221,6 +8234,12 @@ body.all-page {
     text-indent: -5px;
 }
 
+@media (max-width: 1199px) {
+    .tour ul li {
+        line-height: 2rem;
+    }
+}
+
 .tour .tour-complex-and-comfort, .tour .peoples {
     font-size: 1.5rem;
 }
@@ -8229,6 +8248,15 @@ body.all-page {
     margin: 10px;
     border-radius: 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.tour .contact-info {
+    font-size: 1.5rem;
+}
+
+.tour .contact-info a {
+    text-decoration: none;
+    color: #212529;
 }
 
 .black-circle, .grey-circle {

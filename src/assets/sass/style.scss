@@ -63,7 +63,7 @@ body.all-page {
 
 .navbar-all-pages {
 	position: relative;
-	background-color: $white;
+	background-color: $white !important;
 
 	.logo-text {
 		color: $gray-900;
@@ -75,8 +75,6 @@ body.all-page {
 		}
 	}
 }
-
-
 
 .navbar {
 	a {
@@ -483,7 +481,15 @@ body.all-page {
 			color: #FFFFFF;
 			font-size: 4.25rem;
 			font-weight: bold;
-			line-height: 60px;
+			line-height: 4rem;
+		}
+
+		@include media-breakpoint-down(lg) {
+			.entry-title {
+				font-size: 2.5rem;
+				font-weight: bold;
+				line-height: 2.75rem;
+			}	
 		}
 	}
 }
@@ -513,6 +519,11 @@ body.all-page {
 }
 
 .tour {
+	h1 {
+		font-size: 2.75rem;
+		font-weight: bold;
+	}
+
 	h3 {
 		font-size: 2rem;
 		font-weight: bold;
@@ -530,6 +541,11 @@ body.all-page {
   				text-indent: -5px;
 			}
 		}
+		@include media-breakpoint-down(lg) {
+			li {
+				line-height: 2rem;
+			}	
+		}
 	}
 
 	.tour-complex-and-comfort, .peoples {
@@ -541,6 +557,15 @@ body.all-page {
 			margin: 10px;
 			border-radius: 10px;
 			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
+		}
+	}
+
+	.contact-info {
+		font-size: 1.5rem;
+
+		a {
+			text-decoration: none;
+			color: $gray-900;
 		}
 	}
 }
