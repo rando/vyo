@@ -459,6 +459,7 @@ function twentyseventeen_scripts() {
 
 	// VYO CDN scripts
 	wp_enqueue_script( 'carousel', get_theme_file_uri('/assets/js/carousel.min.js'), array( 'jquery' ), '1.0.0' );
+	wp_enqueue_script( 'modal', get_theme_file_uri('/assets/js/modal.js'), array( 'jquery' ), '1.0.0' );
 	
 }
 add_action( 'wp_enqueue_scripts', 'twentyseventeen_scripts' );

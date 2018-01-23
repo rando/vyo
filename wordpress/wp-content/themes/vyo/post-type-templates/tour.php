@@ -13,6 +13,20 @@
 ?>
 
 <?php
+	// TODO !!!
+	// Move all common functions from 'front-page.php', 'tour.php', 'post.php' etc to some common place.
+	function get_readable_start_date($start, $end) {
+		$readable_star_date = $start_date = $start;
+		$end_date = $end;
+
+		// Rewrite with proper DATE functions
+		if (substr($start_date, -4) == substr($end_date, -4)) {
+			$readable_star_date = substr($start_date, 0, -4);
+		}
+
+		return $readable_star_date; 
+	}
+
 	function get_guides() {
 		$guides = get_field('guides');
 
@@ -82,7 +96,6 @@
 	$CONTACTS = get_guides();
 ?>
 
-
 <article id="post-<?php the_ID(); ?>" class="tour">
 
 	<header class="entry-header tour-caption">
@@ -100,9 +113,22 @@
 
 	<div class="container tour-detail-fixed ">
 		<div class="row pt-35 pb-35">
-			<div class="col-12 col-md-5 text-center text-md-left tour-dates"><span><?= the_field('date-start') ?> - <?= the_field('date-end') ?></span> (<?= the_field('days-num') ?> днів)</div>
+			<div class="col-12 col-md-5 text-center text-md-left tour-dates">
+
+			<?php
+			$tour_dates = get_field('tour-dates');
+			foreach ($tour_dates as $idx => $dates):
+			?>
+		
+			<div><span><?= get_readable_start_date($dates['start-date'], $dates['end-date']); ?> - <?= $dates['end-date']; ?></span> (<?= the_field('days-num') ?> днів)</div>
+
+			<?php
+			endforeach;
+			?>
+
+			</div>
 			<div class="col-12 col-md-3 text-center text-md-left tour-price"><?= the_field('price') ?> <?= the_field('currency'); ?></div>
-			<div class="col-12 col-md-4 text-center text-md-right tour-order text-right"><a href="<?= the_permalink() ?>" role="button" class="btn btn-outline-vyo-green">Їду!</a></div>
+			<div class="col-12 col-md-4 text-center text-md-right tour-order text-right"><button  data-toggle="modal" data-target="#order" class="btn btn-outline-vyo-green">Їду!</button></div>
 		</div>
 	</div>
 
@@ -238,8 +264,6 @@
 
 		</div>
 
-
-
 		<div class="row mt-475">
 			<div class="col-9">
 				<h3>Фото</h3>
@@ -300,5 +324,30 @@
 		</div>
 
 	</div>
-
 </article>
+
+<script>
+jQuery('#order').on('shown.bs.modal', function () {
+	jQuery('#order').trigger('focus');
+});
+</script>
+
+<div class="modal" tabindex="-1" role="dialog" id="order">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

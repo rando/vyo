@@ -8,6 +8,8 @@
 @import '../bootstrap/scss/_carousel';	
 @import '../bootstrap/scss/_navbar';
 
+@import '../bootstrap/scss/_modal';
+
 
 $default_font_size: 16;
 $lime: #4BAF6A;
@@ -496,10 +498,17 @@ body.all-page {
 
 .tour-detail-fixed {
 	.tour-order {
-		a {
+		button {
 			width: 100px;
 			text-transform: uppercase;
 			font-weight: bold;
+
+			&:hover, &:focus {
+				color: $white;
+				text-decoration: none;
+				background-color: $lime;
+				box-shadow: 0 0 0 0.2rem rgba(75, 175, 106, .25);
+			}
 		}
 	}
 
