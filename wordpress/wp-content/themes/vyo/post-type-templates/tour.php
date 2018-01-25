@@ -185,78 +185,6 @@
 						<ul><?= get_li_elements(get_field('favorites')); ?></ul>
 					</div>
 				</div>
-
-				<div class="row mt-475">
-					<div class="col-12">
-						<h3>Програма</h3>
-					</div>
-				</div>
-
-				<?php
-				$program_by_days = get_field('days');
-
-				foreach ($program_by_days as $idx => $program_day):
-					$day = $program_day['day'];
-					$program = $program_day['program'];
-					$day_images = $program_day['images'];
-				?>
-
-				<div class="row mt-3">
-					<div class="col-9">
-						<h4><?= $day ?></h4>
-					</div>
-					<div class="w-100"></div>
-					<div class="col-9"><?= $program; ?></div>
-					<div class="w-100"></div>
-					<?php
-					if ($day_images):
-					?>
-					<div class="col-12 day-photos">
-						<div class="row gallery">
-							<div class="col-12">
-								<?php
-
-								foreach ($day_images as $idx => $image):
-									$image_url = $image['sizes']['medium'];
-								?>
-								<img src="<?= $image_url ?>" alt="">
-								<?php
-								endforeach
-								?>
-							</div>
-						</div>
-					</div>
-					<?php
-					endif;
-					?>
-				</div>
-				<?php
-				endforeach;
-				?>
-
-				<div class="row mt-475">
-					<div class="col-9">
-						<h3>У тур включено</h3>
-					</div>
-				</div>
-
-				<div class="row mt-3">
-					<div class="col-9">
-						<ul><?= get_li_elements(get_field('included')); ?></ul>
-					</div>
-				</div>
-
-				<div class="row mt-475">
-					<div class="col-9">
-						<h3>У тур НЕ включено</h3>
-					</div>
-				</div>
-
-				<div class="row mt-3">
-					<div class="col-9">
-						<ul><?= get_li_elements(get_field('not-included')); ?></ul>
-					</div>
-				</div>
 			</div>
 
 			<!-- Guides -->
@@ -272,7 +200,79 @@
             endforeach;
             ?>
 			</div>
+		</div>
 
+		<div class="row mt-475">
+			<div class="col-12">
+				<h3>Програма</h3>
+			</div>
+		</div>
+
+		<?php
+		$program_by_days = get_field('days');
+
+		foreach ($program_by_days as $idx => $program_day):
+			$day = $program_day['day'];
+			$program = $program_day['program'];
+			$day_images = $program_day['images'];
+		?>
+
+		<div class="row mt-3">
+			<div class="col-9">
+				<h4><?= $day ?></h4>
+			</div>
+			<div class="w-100"></div>
+			<div class="col-9"><?= $program; ?></div>
+			<div class="w-100"></div>
+			<?php
+			if ($day_images):
+			?>
+			<div class="col-12 day-photos">
+				<div class="row gallery">
+					<div class="col-12">
+						<?php
+
+						foreach ($day_images as $idx => $image):
+							$image_url = $image['sizes']['medium'];
+							$image_large_url = $image['sizes']['medium_large'];
+						?>
+						<img src="<?= $image_url ?>"  data-large-img="<?= $image_large_url; ?>" alt="">
+						<?php
+						endforeach
+						?>
+					</div>
+				</div>
+			</div>
+			<?php
+			endif;
+			?>
+		</div>
+		<?php
+		endforeach;
+		?>
+
+		<div class="row mt-475">
+			<div class="col-9">
+				<h3>У тур включено</h3>
+			</div>
+		</div>
+
+		<div class="row mt-3">
+			<div class="col-9">
+				<ul><?= get_li_elements(get_field('included')); ?></ul>
+			</div>
+		</div>
+
+		<div class="row mt-475">
+			<div class="col-9">
+				<h3>У тур НЕ включено</h3>
+			</div>
+		</div>
+
+		<div class="row mt-3">
+			<div class="col-9">
+				<ul><?= get_li_elements(get_field('not-included')); ?></ul>
+			</div>
 		</div>
 
 		<div class="row mt-475">
@@ -311,7 +311,7 @@
 				<?php
 				foreach ($CONTACTS as $idx => $contact):
 				?>
-				<div class="font-weight-bold"><?= $contact['email']; ?></div>
+				<div class="font-weight-bold"><a href="mailto:<?= $contact['email']; ?>"><?= $contact['email']; ?></a></div>
 				<?php
 				endforeach;
 				?>
