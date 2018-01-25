@@ -518,6 +518,10 @@ body.all-page {
 
 	.tour-price {
 		color: $lime;
+		del {
+			font-size: 1.25rem;
+			color: $gray-600;
+		}
 	}
 }
 

@@ -8355,6 +8355,11 @@ body.all-page {
     color: #4BAF6A;
 }
 
+.tour-detail-fixed .tour-price del {
+    font-size: 1.25rem;
+    color: #868e96;
+}
+
 .tour-line {
     height: 1px;
     width: 100%;
