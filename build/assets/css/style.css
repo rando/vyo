@@ -7891,7 +7891,7 @@ html {
     font-family: 'Open Sans', sans-serif;
 }
 
-body.front-page {
+body.front-page, body.grey {
     background-color: #F3F3F3;
 }
 
@@ -8430,4 +8430,21 @@ body.all-page {
 
 .grey-circle {
     background-color: #C9C9C9;
+}
+
+.all-tours .tour-container .tour {
+    background-color: #fff;
+    height: 400px;
+    border-radius: 40px;
+    padding: 0;
+}
+
+.all-tours .tour-container .tour:hover {
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.3);
+}
+
+.all-tours .tour-container .tour img {
+    height: 400px;
+    border-radius: 40px 0 0 40px;
+    object-fit: cover;
 }

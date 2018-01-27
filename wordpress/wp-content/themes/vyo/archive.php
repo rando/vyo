@@ -12,6 +12,8 @@
 
 get_header(); ?>
 
+AAAAAAAAAAA!
+
 <div class="wrap">
 
 	<?php if ( have_posts() ) : ?>

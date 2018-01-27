@@ -71,8 +71,8 @@ get_header(); ?>
 			'posts_per_page'=> 6
 		);
 
-		$guides = new WP_Query($args);
-		return $guides;		
+		$tours = new WP_Query($args);
+		return $tours;		
 	}
 
 	function get_reviewers() {

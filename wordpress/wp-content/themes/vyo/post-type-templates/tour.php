@@ -139,7 +139,7 @@
 				}
 				?>	
 			</div>
-			<div class="col-12 col-md-4 text-center text-md-right tour-order text-right"><!-- <button  data-toggle="modal" data-target="#order" class="btn btn-outline-vyo-green">Їду!</button> --></div>
+			<div class="col-12 col-md-4 text-center text-md-right tour-order text-right"><button  data-toggle="modal" data-target="#order" class="btn btn-outline-vyo-green">Їду!</button></div>
 		</div>
 	</div>
 
@@ -282,7 +282,7 @@
 		</div>
 	</div>
 
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row mt-3 gallery">
 			<div class="col-12">
 				<?php

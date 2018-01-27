@@ -34,7 +34,6 @@
 
 <?php
 if ( is_front_page() ) {
-print_r($pagename); 
 ?>
 <body class="front-page">
     <div class="navbar-wrapper">
@@ -48,10 +47,10 @@ print_r($pagename);
                 </div>
                 <div class="col-12 col-md-6 text-center mt-3 mt-md-0 pt-1 pt-md-475 mb-4 mb-md-0 menu">
                         <a class="m-1 m-md-2 active" href="/">Головна</a href="#">
-                        <a class="m-1 m-md-2" href="#">Мандрівки</a href="#">
+                        <a class="m-1 m-md-2" href="/tours">Мандрівки</a href="#">
                         <!-- <a class="m-1 m-md-2" href="#">Блог</a href="#"> -->
-                        <a class="m-1 m-md-2" href="#">Про нас</a href="#">
-                        <a class="m-1 m-md-2" href="#">Контакти</a href="#">
+                        <a class="m-1 m-md-2" href="/about-us">Про нас</a href="#">
+                        <a class="m-1 m-md-2" href="/contacts">Контакти</a href="#">
                 </div>
                 <div class="col-12 d-none d-sm-none d-md-block col-md-3 text-md-right text-center pt-3">
                     <a href="https://facebook.com/vyo.travel"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>facebook-light.png" alt=""></a>
@@ -61,7 +60,7 @@ print_r($pagename);
         </div>
     </div>
 <?php } else { ?>
-<body class="all-page">
+<body class="<?= ($GLOBALS['active_page'] === "tours_list") ? 'grey' : 'all-page' ?>">
     <div class="navbar-wrapper navbar-all-pages">
         <div class="container">
             <div class="row no-gutter justify-content-between">
@@ -73,10 +72,10 @@ print_r($pagename);
                 </div>
                 <div class="col-12 col-md-6 text-center text-lg-right mt-3 mt-md-0 pt-1 pt-md-475 mb-4 mb-md-0 menu">
                     <a class="m-1 m-md-2 active" href="/">Головна</a href="#">
-                    <a class="m-1 m-md-2" href="#">Мандрівки</a href="#">
+                    <a class="m-1 m-md-2" href="/tours">Мандрівки</a href="#">
                     <!-- <a class="m-1 m-md-2" href="#">Блог</a href="#"> -->
-                    <a class="m-1 m-md-2" href="#">Про нас</a href="#">
-                    <a class="m-1 m-md-2" href="#">Контакти</a href="#">
+                    <a class="m-1 m-md-2" href="/about-us">Про нас</a href="#">
+                    <a class="m-1 m-md-2" href="/contacts">Контакти</a href="#">
                     <a href="https://facebook.com/vyo.travel" class="d-none d-sm-none d-md-inline-block"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>facebook-dark.png" alt=""></a>
                     <a href="https://instagram.com/vyo.travel" class="d-none d-sm-none d-md-inline-block"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-dark.png" alt=""></a>
                 </div>
