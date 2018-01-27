@@ -601,6 +601,12 @@ body.all-page {
 
 .all-tours {
 	.tour-container {
+
+		h1 {
+			font-size: 2.25rem;
+			font-weight: bold;
+		}
+
 		.tour {
 			background-color: $white;
 			height: 400px;

@@ -8432,6 +8432,11 @@ body.all-page {
     background-color: #C9C9C9;
 }
 
+.all-tours .tour-container h1 {
+    font-size: 2.25rem;
+    font-weight: bold;
+}
+
 .all-tours .tour-container .tour {
     background-color: #fff;
     height: 400px;
