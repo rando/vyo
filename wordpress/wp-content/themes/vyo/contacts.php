@@ -2,7 +2,7 @@
 		/**
 		* Template name: contacts
 		 */
-
+$GLOBALS['active_page'] = "contacts";
 
 get_header(); ?>
 

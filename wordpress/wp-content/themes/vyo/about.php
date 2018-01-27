@@ -2,7 +2,8 @@
 		/**
 		* Template name: about
 		 */
-
+		
+$GLOBALS['active_page'] = "about";
 
 get_header(); ?>
 

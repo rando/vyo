@@ -10,6 +10,14 @@
  * @version 1.0
  */
 
+if (true) {
+	$GLOBALS['active_page'] = "tour";
+}
+//post
+if (false) {
+	$GLOBALS['active_page'] = "blog";
+}
+
 get_header(); ?>
 
 <?php
