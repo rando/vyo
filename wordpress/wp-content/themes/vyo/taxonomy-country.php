@@ -1,51 +1,62 @@
 <?php
 		/**
-		* Template name: tours-list
+		* Template name: country
 		 */
 $GLOBALS['active_page'] = "tours_list";
-get_header(); ?>
 
-<?php
+function get_readable_start_date($tour_dates) {
+	$first_date = $tour_dates[0];
+	$readable_star_date = $start_date = $first_date['start-date'];
+	$end_date = $first_date['end-date'];
 
-  function get_readable_start_date($tour_dates) {
-    $first_date = $tour_dates[0];
-    $readable_star_date = $start_date = $first_date['start-date'];
-    $end_date = $first_date['end-date'];
-
-    // Rewrite with proper DATE functions
-    if (substr($start_date, -4) == substr($end_date, -4)) {
-      $readable_star_date = substr($start_date, 0, -4);
-    }
-
-    return $readable_star_date; 
-  }
-
-  function get_readable_countries($countries) {
-    $all_countries = array();
-    foreach ($countries as $idx => $country) {
-      array_push($all_countries, $country->name);
-    }
-    return join(', ', $all_countries);
-  }
-
- 	// TODO Add get_price function
-
-	function get_tours() {
-		$args = array(
-			'post_type'		=> 'tours',
-			'meta_key'		=> 'date-start',
-			'orderby'		=> 'meta_value',
-			'order'			=> 'ASC',
-			'posts_per_page'=> -1
-		);
-
-		$tours = new WP_Query($args);
-		return $tours;		
+	// Rewrite with proper DATE functions
+	if (substr($start_date, -4) == substr($end_date, -4)) {
+		$readable_star_date = substr($start_date, 0, -4);
 	}
 
-	$tours = get_tours();
+	return $readable_star_date; 
+}
 
-?>
+function get_readable_countries($countries) {
+	$all_countries = array();
+	foreach ($countries as $idx => $country) {
+		array_push($all_countries, $country->name);
+	}
+	return join(', ', $all_countries);
+}
+
+function get_tours() {
+	$country = 'Китай';
+	$args = array(
+		'numberposts'	=> -1,
+		'post_type'		=> 'tour',
+		'meta_key'		=> 'countries_$_name',
+		'meta_value'	=> $country,
+		'compare'	=> 'LIKE'
+	);
+
+	$args = array(
+		'post_type' => 'tour',
+		'tax_query' => array(
+		array(
+		'taxonomy' => 'countries',
+		'field' => 'slug',
+		'terms' => 'china',
+		),
+		),
+	);
+
+	$tours = new WP_Query($args);
+	return $tours;		
+}
+
+$tours = get_tours();
+
+get_header(); ?>
+
+<pre>
+	<?php print_r($tours); ?>
+</pre>
 
 <div class="all-tours">
 	<div class="tours">
@@ -53,14 +64,22 @@ get_header(); ?>
 
 			<div class="row mt-4">
 				<div class="col-12 pl-5">
-					<h1>Мандрівки</h1>
+					<h1><?php single_cat_title(); ?></h1>
 				</div>
 			</div>
 
+			
 			<?php
-			while ( $tours->have_posts() ):
-				$tours->the_post();
+			while ( have_posts() ):
+				the_post();
 			?>
+
+			<!-- <?php print_r(get_the_term_list( get_the_ID(), 'country', '', ', ' )); ?> -->
+
+
+			<pre>
+			<?= print_r(get_fields()); ?>
+			</pre>
 
 	        <div class="row tour no-gutters m-4">
 	            <div class="col-7"><img class="w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt=""></div>
