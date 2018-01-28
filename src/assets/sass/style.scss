@@ -625,3 +625,20 @@ body.all-page {
 		}
 	}
 }
+
+a.malinky-load-more__button {
+	width: 200px;
+	font-weight: $font-weight-bold;
+	color: $white;
+	background-color: $black;
+	cursor: pointer;
+	text-transform: uppercase;
+
+	padding: $input-btn-padding-y 1.5rem;
+	text-decoration: none;
+	border-radius: 25px;
+
+	&:hover {
+		text-decoration: none;
+	}
+}

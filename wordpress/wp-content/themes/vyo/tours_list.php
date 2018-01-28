@@ -31,12 +31,14 @@ get_header(); ?>
  	// TODO Add get_price function
 
 	function get_tours() {
+		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 		$args = array(
-			'post_type'		=> 'tours',
-			'meta_key'		=> 'date-start',
-			'orderby'		=> 'meta_value',
-			'order'			=> 'ASC',
-			'posts_per_page'=> -1
+			'post_type'			=> 'tours',
+			'meta_key'			=> 'date-start',
+			'orderby'			=> 'meta_value',
+			'order'				=> 'ASC',
+			'posts_per_page'	=> 2,
+			'paged'				=> $paged,
 		);
 
 		$tours = new WP_Query($args);
@@ -88,11 +90,37 @@ get_header(); ?>
 
 	                    <a href="<?= the_permalink() ?>" role="button" class="btn btn-outline-vyo-dr align-bottom">ВЙО!</a>
 	                </div>
-	            </div>    
+	            </div>  
 	        </div>
 	        <?php
 	        endwhile;
 	        ?>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-12 text-center mt-4 mb-6">
+			<div class="tour-pagination text-center">
+			<?php
+		    $total_pages = $tours->max_num_pages;
+
+		    if ($total_pages > 1) {
+
+		        $current_page = max(1, get_query_var('paged'));
+
+		        echo paginate_links(array(
+		            'base' => get_pagenum_link(1) . '%_%',
+		            'format' => '/page/%#%',
+		            'current' => $current_page,
+		            'total' => $total_pages,
+		            'prev_text'    => __('« prev'),
+		            'next_text'    => __('next »'),
+		        ));
+		    }    
+			?>
+			</div>
 		</div>
 	</div>
 </div>

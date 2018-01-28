@@ -25,25 +25,24 @@ function get_readable_countries($countries) {
 	return join(', ', $all_countries);
 }
 
+function my_posts_where( $where ) {
+	
+	$where = str_replace("meta_key = 'countries_$", "meta_key LIKE 'countries_%", $where);
+	echo "AAA";
+
+	return $where;
+}
+
+add_filter('posts_where', 'my_posts_where');
+
 function get_tours() {
-	$country = 'Китай';
+	$country = 'china';
 	$args = array(
 		'numberposts'	=> -1,
-		'post_type'		=> 'tour',
-		'meta_key'		=> 'countries_$_name',
-		'meta_value'	=> $country,
-		'compare'	=> 'LIKE'
-	);
-
-	$args = array(
-		'post_type' => 'tour',
-		'tax_query' => array(
-		array(
-		'taxonomy' => 'countries',
-		'field' => 'slug',
-		'terms' => 'china',
-		),
-		),
+		'post_type'		=> 'tours',
+		'meta_key'		=> 'countries',
+		'meta_value'	=> 8,
+		'meta_compare'	=> 'LIKE'
 	);
 
 	$tours = new WP_Query($args);
@@ -74,7 +73,7 @@ get_header(); ?>
 				the_post();
 			?>
 
-			<!-- <?php print_r(get_the_term_list( get_the_ID(), 'country', '', ', ' )); ?> -->
+			<!-- <?php print_r(get_the_terms_list( get_the_ID(), 'country', '', ', ' )); ?> -->
 
 
 			<pre>
@@ -112,6 +111,32 @@ get_header(); ?>
 	        <?php
 	        endwhile;
 	        ?>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-12 text-center mt-4 mb-6">
+			<div class="tour-pagination text-center">
+			<?php
+		    $total_pages = $tours->max_num_pages;
+
+		    if ($total_pages > 1) {
+
+		        $current_page = max(1, get_query_var('paged'));
+
+		        echo paginate_links(array(
+		            'base' => get_pagenum_link(1) . '%_%',
+		            'format' => '/page/%#%',
+		            'current' => $current_page,
+		            'total' => $total_pages,
+		            'prev_text'    => __('« prev'),
+		            'next_text'    => __('next »'),
+		        ));
+		    }    
+			?>
+			</div>
 		</div>
 	</div>
 </div>
