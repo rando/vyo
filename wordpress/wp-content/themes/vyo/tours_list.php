@@ -65,16 +65,17 @@ get_header(); ?>
 			?>
 
 	        <div class="row tour no-gutters m-4">
-	            <div class="col-7"><img class="w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt=""></div>
-	            <div class="col-5 tour-detail">
+	            <div class="col-12 col-sm-7 tour-image"><img class="w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt=""></div>
+	            <div class="col-12 col-sm-5 tour-detail">
 	                <div class="tour-date"><span class="font-weight-bold"><?= get_readable_start_date(get_field('tour-dates')); ?> - <?= get_field('tour-dates')[0]['end-date']; ?></span> (<?= the_field('days-num') ?> днів)</div>
 	                <div class="tour-countries mb-35"><?= get_readable_countries(get_field('countries')); ?></div>
-	                <div class="tour-bottom">
+	               	<div>
 	                    <h3 class="tour-name font-weight-bold mb-3">
 	                    	<a href="<?= the_permalink(); ?>"><?= the_title(); ?></a>
 	                    </h3>
-	                    <div class="tour-description pr-3"><?= the_content(); ?></div>
-
+	                    <div class="tour-description d-block d-sm-block pr-3"><?= the_content(); ?></div>
+	               	</div>
+	                <div class="tour-bottom">
 						<div class="tour-price my-3 ml-1 font-weight-bold">
 							<?php
 							if (get_field('discount-price')) {
@@ -118,7 +119,8 @@ get_header(); ?>
 		            'prev_text'    => __('« prev'),
 		            'next_text'    => __('next »'),
 		        ));
-		    }    
+		    }
+		    wp_reset_postdata();    
 			?>
 			</div>
 		</div>

@@ -3,6 +3,7 @@
 		* Template name: country
 		 */
 $GLOBALS['active_page'] = "tours_list";
+get_header();
 
 function get_readable_start_date($tour_dates) {
 	$first_date = $tour_dates[0];
@@ -51,7 +52,7 @@ function get_tours() {
 
 $tours = get_tours();
 
-get_header(); ?>
+?>
 
 <pre>
 	<?php print_r($tours); ?>
