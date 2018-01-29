@@ -625,29 +625,15 @@ body.all-page {
 		}
 	}
 
-	@include media-breakpoint-down(xs) {
+	@include media-breakpoint-down(sm) {
 		div.tours {
-			.btn {
-				transition : border 500ms ease-out;
-			}
-
 			div.tour-container {
 				padding: 5px;
-
-				&:hover {
-					a.btn {
-						border-color: $lime;
-					}
-				}
 
 				div.tour {
 					border-radius: 40px;
 					height: auto;
 					background-color: $light;
-
-					&:hover {
-						box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.3); 
-					}
 
 					.tour-image {
 						height: 260px;
@@ -662,18 +648,6 @@ body.all-page {
 					.tour-detail {
 						height: auto;
 						padding: 30px 20px 20px 20px;
-					}
-
-					h3 {
-						font-size: 1.75rem;
-
-				        a {
-				        	color: $dark;
-
-				        	&:hover {
-				        		text-decoration: none;
-				        	}
-				        }
 					}
 
 					.tour-name {

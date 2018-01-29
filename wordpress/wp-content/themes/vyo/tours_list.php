@@ -65,8 +65,8 @@ get_header(); ?>
 			?>
 
 	        <div class="row tour no-gutters m-4">
-	            <div class="col-12 col-sm-7 tour-image"><img class="w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt=""></div>
-	            <div class="col-12 col-sm-5 tour-detail">
+	            <div class="col-12 col-sm-12 col-md-7 tour-image"><img class="w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt=""></div>
+	            <div class="col-12 col-sm-12 col-md-5 tour-detail">
 	                <div class="tour-date"><span class="font-weight-bold"><?= get_readable_start_date(get_field('tour-dates')); ?> - <?= get_field('tour-dates')[0]['end-date']; ?></span> (<?= the_field('days-num') ?> днів)</div>
 	                <div class="tour-countries mb-35"><?= get_readable_countries(get_field('countries')); ?></div>
 	               	<div>
