@@ -8090,6 +8090,16 @@ body.all-page {
     letter-spacing: 1px;
 }
 
+#carousel-header-cover .tour-price del {
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+#carousel-header-cover .tour-countries a {
+    text-decoration: none;
+    color: #fff;
+}
+
 .guides .guide-socials a {
     margin: 0 15px;
     color: #343a40;
@@ -8158,6 +8168,11 @@ body.all-page {
 .tours .tour-container .tour .tour-bottom {
     position: absolute;
     bottom: 30px;
+}
+
+.tours .tour-container .tour .tour-detail .tour-countries a {
+    text-decoration: none;
+    color: #000;
 }
 
 #carousel-review img {
@@ -8454,6 +8469,26 @@ body.all-page {
     object-fit: cover;
 }
 
+.all-tours .tour-container .tour .tour-name {
+    height: auto;
+    overflow: auto;
+    line-height: 35px;
+}
+
+.all-tours .tour-container .tour .tour-name-and-desc {
+    height: 190px;
+    overflow: hidden;
+}
+
+.all-tours .tour-container .tour .tour-bottom {
+    bottom: 15px;
+}
+
+.all-tours .tour-container .tour del {
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
 @media (max-width: 767px) {
     .all-tours div.tours div.tour-container {
         padding: 5px;
@@ -8480,10 +8515,9 @@ body.all-page {
         padding: 30px 20px 20px 20px;
     }
 
-    .all-tours div.tours div.tour-container div.tour .tour-name {
+    .all-tours div.tours div.tour-container div.tour .tour-name-and-desc {
         height: auto;
         overflow: auto;
-        line-height: 35px;
     }
 
     .all-tours div.tours div.tour-container div.tour div.tour-bottom {

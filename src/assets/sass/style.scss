@@ -228,6 +228,18 @@ body.all-page {
         font-size: 20/$default_font_size + rem;
         line-height: 27/$default_font_size + rem;
         letter-spacing: 1px;
+
+        del {
+        	font-weight: normal;
+        	font-size: 1rem;
+        }
+    }
+
+    .tour-countries {
+    	a {
+    		text-decoration: none;
+    		color: $white;
+    	}
     }
 
 }
@@ -304,6 +316,15 @@ body.all-page {
 			.tour-bottom {
 				position: absolute;
 				bottom: 30px;
+			}
+
+			.tour-detail {
+				.tour-countries {
+					a {
+						text-decoration: none;
+						color: $black;
+					}
+				}
 			}
 		}		
 	}
@@ -621,7 +642,27 @@ body.all-page {
 				height: 400px;
 				border-radius: 40px 0 0 40px;
 				object-fit: cover;
-			}	
+			}
+
+			.tour-name {
+				height: auto;
+				overflow: auto;
+				line-height: 35px;
+			}
+
+			.tour-name-and-desc {
+				height: 190px;
+				overflow: hidden;
+			}
+
+			.tour-bottom {
+				bottom: 15px;
+			}
+
+			del {
+				font-weight: normal;
+				font-size: 0.8rem;
+			}
 		}
 	}
 
@@ -650,11 +691,9 @@ body.all-page {
 						padding: 30px 20px 20px 20px;
 					}
 
-					.tour-name {
+					.tour-name-and-desc {
 						height: auto;
 						overflow: auto;
-						line-height: 35px;
-
 					}
 
 					div.tour-bottom {

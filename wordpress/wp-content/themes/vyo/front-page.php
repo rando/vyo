@@ -29,10 +29,15 @@ get_header(); ?>
     return $readable_star_date; 
   }
 
-  function get_readable_countries($countries) {
+  function get_readable_countries($countries, $link=false) {
     $all_countries = array();
     foreach ($countries as $idx => $country) {
-      array_push($all_countries, $country->name);
+      $country_name = $country->name;
+      if ($link) {
+        $format = '<a href="/country/%s" alt="%s">%s</a>';
+        $country_name = sprintf($format, $country->slug, $country->name, $country->name); 
+      }
+      array_push($all_countries, $country_name);
     }
     return join(', ', $all_countries);
   }
@@ -77,8 +82,9 @@ get_header(); ?>
 
 	function get_reviewers() {
 		$args = array(
-			'numberposts'	=> -1,
-			'post_type'		=> 'reviewers',
+      'orderby'   => 'rand',
+      'posts_per_page' => 3, 
+      'post_type'		=> 'reviewers',
 		);
 
 		$reviewers = new WP_Query($args);
@@ -126,10 +132,21 @@ get_header(); ?>
           	<!-- TODO: Add days wording -->
           	<div class="d-flex align-items-center flex-column justify-content-between h-100 mt-4">
 	            <div class="tour-date font-weight-bold mb-3"><?= get_readable_start_date(get_field('tour-dates')); ?> - <?= get_field('tour-dates')[0]['end-date']; ?> (<?= the_field('days-num') ?> днів)</div>
-	            <div class="tour-countries mb-md-6"><?= get_readable_countries(get_field('countries')); ?></div>
+	            <div class="tour-countries mb-md-6"><?= get_readable_countries(get_field('countries'), true); ?></div>
 	            <div class="mt-auto"><h3 class="tour-name mb-3"><a href="<?= the_permalink(); ?>"><?= the_title(); ?></a></h3></div>
 	            <div class="mt-auto mb-6">
-		            <p class="tour-price font-weight-bold mb-3"><?= the_field('price') ?> <?= the_field('currency'); ?></p>
+		            <p class="tour-price font-weight-bold mb-3">
+                  <?php
+                  if (get_field('discount-price')) {
+                    the_field('discount-price') ?> <?= the_field('currency');
+                  ?> 
+                  <del><?= the_field('price') ?> <?= the_field('currency'); ?></del>
+                  <?php
+                  } else {
+                    the_field('price') ?> <?= the_field('currency');
+                  }
+                  ?>
+                </p>
 		            <a href="<?= the_permalink() ?>" role="button" class="btn btn-outline-vyo-lt">ВЙО!</a>
 	            </div>
             </div>
@@ -230,7 +247,7 @@ get_header(); ?>
                     <div><img class="w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt=""></div>
                     <div class="tour-detail">
                         <div class="tour-date"><span class="font-weight-bold"><?= get_readable_start_date(get_field('tour-dates')); ?> - <?= get_field('tour-dates')[0]['end-date']; ?></span> (<?= the_field('days-num') ?> днів)</div>
-                        <div class="tour-countries mb-35"><?= get_readable_countries(get_field('countries')); ?></div>
+                        <div class="tour-countries mb-35"><?= get_readable_countries(get_field('countries'), true); ?></div>
                         <div class="tour-bottom">
 	                        <h3 class="tour-name font-weight-bold mb-3">
 	                        	<a href="<?= the_permalink(); ?>"><?= the_title(); ?></a>
@@ -247,7 +264,7 @@ get_header(); ?>
         </div>
 
         <div class="row justify-content-center mb-65">
-            <div class="col-8 text-center"><a href="#" class="btn btn-vyo-black text-uppercase">Усі подорожі</a></div>
+            <div class="col-8 text-center"><a href="/tours/" class="btn btn-vyo-black text-uppercase">Усі подорожі</a></div>
         </div>
     </div>
 

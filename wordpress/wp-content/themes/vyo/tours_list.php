@@ -7,26 +7,31 @@ get_header(); ?>
 
 <?php
 
-  function get_readable_start_date($tour_dates) {
-    $first_date = $tour_dates[0];
-    $readable_star_date = $start_date = $first_date['start-date'];
-    $end_date = $first_date['end-date'];
+	function get_readable_start_date($tour_dates) {
+		$first_date = $tour_dates[0];
+		$readable_star_date = $start_date = $first_date['start-date'];
+		$end_date = $first_date['end-date'];
 
-    // Rewrite with proper DATE functions
-    if (substr($start_date, -4) == substr($end_date, -4)) {
-      $readable_star_date = substr($start_date, 0, -4);
-    }
+		// Rewrite with proper DATE functions
+		if (substr($start_date, -4) == substr($end_date, -4)) {
+			$readable_star_date = substr($start_date, 0, -4);
+		}
 
-    return $readable_star_date; 
-  }
+		return $readable_star_date; 
+	}
 
-  function get_readable_countries($countries) {
-    $all_countries = array();
-    foreach ($countries as $idx => $country) {
-      array_push($all_countries, $country->name);
-    }
-    return join(', ', $all_countries);
-  }
+	function get_readable_countries($countries, $link=false) {
+		$all_countries = array();
+		foreach ($countries as $idx => $country) {
+			$country_name = $country->name;
+			if ($link) {
+				$format = '<a href="/country/%s" alt="%s">%s</a>';
+				$country_name = sprintf($format, $country->slug, $country->name, $country->name); 
+			}
+			array_push($all_countries, $country_name);
+		}
+		return join(', ', $all_countries);
+	}
 
  	// TODO Add get_price function
 
@@ -68,15 +73,15 @@ get_header(); ?>
 	            <div class="col-12 col-sm-12 col-md-7 tour-image"><img class="w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt=""></div>
 	            <div class="col-12 col-sm-12 col-md-5 tour-detail">
 	                <div class="tour-date"><span class="font-weight-bold"><?= get_readable_start_date(get_field('tour-dates')); ?> - <?= get_field('tour-dates')[0]['end-date']; ?></span> (<?= the_field('days-num') ?> днів)</div>
-	                <div class="tour-countries mb-35"><?= get_readable_countries(get_field('countries')); ?></div>
-	               	<div>
+	                <div class="tour-countries mb-35"><?= get_readable_countries(get_field('countries'), true); ?></div>
+	               	<div class="tour-name-and-desc">
 	                    <h3 class="tour-name font-weight-bold mb-3">
 	                    	<a href="<?= the_permalink(); ?>"><?= the_title(); ?></a>
 	                    </h3>
 	                    <div class="tour-description d-block d-sm-block pr-3"><?= the_content(); ?></div>
 	               	</div>
 	                <div class="tour-bottom">
-						<div class="tour-price my-3 ml-1 font-weight-bold">
+						<div class="tour-price my-4 my-md-2 ml-1 font-weight-bold">
 							<?php
 							if (get_field('discount-price')) {
 								the_field('discount-price') ?> <?= the_field('currency');

@@ -56,10 +56,15 @@
 		return $contacts;
 	}
 
-	function get_readable_countries($countries) {
+	function get_readable_countries($countries, $link=false) {
 		$all_countries = array();
 		foreach ($countries as $idx => $country) {
-			array_push($all_countries, $country->name);
+			$country_name = $country->name;
+			if ($link) {
+				$format = '<a href="/country/%s" alt="%s">%s</a>';
+				$country_name = sprintf($format, $country->slug, $country->name, $country->name); 
+			}
+			array_push($all_countries, $country_name);
 		}
 		return join(', ', $all_countries);
 	}
