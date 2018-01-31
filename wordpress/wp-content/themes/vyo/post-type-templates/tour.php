@@ -13,6 +13,7 @@
 ?>
 
 <?php
+
 	// TODO !!!
 	// Move all common functions from 'front-page.php', 'tour.php', 'post.php' etc to some common place.
 	function get_readable_start_date($start, $end) {
@@ -345,6 +346,8 @@
 	</div>
 </article>
 
+<?= do_shortcode('[ninja_form id=1]') ?>
+
 <script>
 jQuery('#order').on('shown.bs.modal', function () {
 	jQuery('#order').trigger('focus');
@@ -361,11 +364,7 @@ jQuery('#order').on('shown.bs.modal', function () {
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <script type="text/javascript" src="https://form.jotformeu.com/jsform/80303118975355?tour=<?= the_title(); ?>"></script>
       </div>
     </div>
   </div>

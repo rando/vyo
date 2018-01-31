@@ -66,7 +66,7 @@ if ( is_front_page() ) {
             <div class="row no-gutter justify-content-between">
                 <div class="col-12 col-md-3 d-none d-sm-none d-md-block text-md-left text-center p-3">
                     <a href="/">
-                        <img src="<?= get_theme_file_uri('assets/images/static/') ?>logo-light.png" width="60" height="44" class="d-inline-block align-middle" alt="ВЙО. Агенція пригод">
+                        <img src="<?= get_theme_file_uri('assets/images/static/') ?>logo-green.png" width="60" height="44" class="d-inline-block align-middle" alt="ВЙО. Агенція пригод">
                 <span class="logo-text">Агенція пригод</span>
                     </a>
                 </div>
