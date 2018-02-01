@@ -83,7 +83,7 @@ get_header(); ?>
 	function get_reviewers() {
 		$args = array(
       'orderby'   => 'rand',
-      'posts_per_page' => 3, 
+      'posts_per_page' => 5, 
       'post_type'		=> 'reviewers',
 		);
 
@@ -306,7 +306,15 @@ get_header(); ?>
 				<div class="review-img mb-4">
 					<img class="d-block rounded-circle" src="<?= get_the_post_thumbnail_url(); ?>" alt="First slide">
 				</div>
-				<div class="reviewer font-weight-bold"><?= the_title(); ?></div>
+				<div class="reviewer font-weight-bold">
+        <?php if (get_field('facebook')) { ?>
+          <a class="review-fb" href="<?= get_field('facebook'); ?>">
+            <?= the_title(); ?>  
+          </a>
+        <?php } else {
+        the_title(); 
+        } ?>
+        </div>
 				<div class="mb-5"><?= get_field('position'); ?></div>
 				<div class="review-block font-italic"><?= the_content(); ?></div>
 			</div>

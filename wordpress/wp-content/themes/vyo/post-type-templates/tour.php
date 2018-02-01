@@ -165,19 +165,24 @@
 						<div class="row mb-md-4">
 							<div class="col-12 col-md-6">
 								<div class="row">
-									<div class="col-5 col-md-6 col-lg-4">Складність</div>
-									<div class="col-7 col-md-6 col-lg-8"><?= draw_circle(get_field('difficult')); ?></div>
+									<div class="col-7 col-md-6 col-lg-6">Складність</div>
+									<div class="col-5 col-md-6 col-lg-6 text-left"><?= draw_circle(get_field('difficult')); ?></div>
 								</div>
 							</div>
 							<div class="col-12 col-md-6">
 								<div class="row">
-									<div class="col-5 col-md-6 col-lg-4">Комфорт</div>
-									<div class="col-7 col-md-6 col-lg-8"><?= draw_circle(get_field('comfort')); ?></div>
+									<div class="col-7 col-md-6 col-lg-4">Комфорт</div>
+									<div class="col-5 col-md-6 col-lg-8 text-left"><?= draw_circle(get_field('comfort')); ?></div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-12 peoples">Кількість людей: <span class="font-weight-bold"><?= get_field('peoples'); ?></span></div>
+					<div class="col-12 peoples">
+						<div class="row">
+							<div class="col-7 col-md-6 col-lg-3">Кількість людей</div> 
+							<div class="col-5 col-md-6 col-lg-9 text-left pl-4 pl-md-0 pl-lg-4 font-weight-bold"><?= get_field('peoples'); ?></div>
+						</div>
+					</div>
 				</div>
 
 				<div class="row mt-475">
@@ -346,8 +351,6 @@
 	</div>
 </article>
 
-<?= do_shortcode('[ninja_form id=1]') ?>
-
 <script>
 jQuery('#order').on('shown.bs.modal', function () {
 	jQuery('#order').trigger('focus');
@@ -355,17 +358,14 @@ jQuery('#order').on('shown.bs.modal', function () {
 </script>
 
 <div class="modal" tabindex="-1" role="dialog" id="order">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <script type="text/javascript" src="https://form.jotformeu.com/jsform/80303118975355?tour=<?= the_title(); ?>"></script>
-      </div>
-    </div>
-  </div>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="close" data-dismiss="modal">
+				<img src="<?= get_theme_file_uri('assets/images/static/') ?>close.png" alt="">
+			</div>
+			<div class="logo text-center"><img src="<?= get_theme_file_uri('assets/images/static/') ?>logo-light.png" alt=""></div>
+			<div class="info text-center">Дякую що зголосились їхати з нами! Нам ще треба ваші дані, щоб менеджер зв'язався з вами.</div>
+			<?= do_shortcode('[ninja_form id=1]') ?>
+		</div>
+	</div>
 </div>

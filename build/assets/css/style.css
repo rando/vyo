@@ -8223,6 +8223,11 @@ body.all-page {
     font-size: 1.5em;
 }
 
+#carousel-review .carousel-caption .reviewer a.review-fb {
+    color: #343a40;
+    text-decoration: none;
+}
+
 #carousel-review .carousel-caption .review-img {
     margin: auto;
     width: 160px;
@@ -8252,11 +8257,11 @@ body.all-page {
     color: #fff;
 }
 
-.subscribe #vyo-email {
+.subscribe #mce-EMAIL {
     border-radius: 20px;
 }
 
-.subscribe #vyo-email:placeholder-shown {
+.subscribe #mce-EMAIL:placeholder-shown {
     font-style: italic;
 }
 
@@ -8364,6 +8369,16 @@ body.all-page {
 
 .tour-detail-fixed .tour-price, .tour-detail-fixed .tour-dates {
     font-size: 1.5rem;
+}
+
+@media (max-width: 767px) {
+    .tour-detail-fixed div.tour-price, .tour-detail-fixed div.tour-dates {
+        font-size: 1.25rem;
+    }
+
+    .tour-detail-fixed div.tour-price del, .tour-detail-fixed div.tour-dates del {
+        font-size: 1rem;
+    }
 }
 
 .tour-detail-fixed .tour-price {
@@ -8540,4 +8555,84 @@ a.malinky-load-more__button {
 
 a.malinky-load-more__button:hover {
     text-decoration: none;
+}
+
+.modal-content {
+    background-color: #4BAF6A;
+    color: #fff;
+    padding: 50px;
+    border-radius: 50px;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.modal-content .logo img {
+    width: 150px;
+}
+
+.modal-content .info {
+    font-size: 1rem;
+    width: 330px;
+    margin: 20px 35px;
+    font-family: "Open Sans";
+}
+
+.modal-content div.textbox-container div.nf-field div.nf-error div.nf-field-element input.ninja-forms-field, .modal-content div.email-container div.nf-field div.nf-error div.nf-field-element input.ninja-forms-field {
+    border: 1px solid red;
+}
+
+.modal-content div.textbox-container div.nf-field div.nf-field-element input.ninja-forms-field, .modal-content div.email-container div.nf-field div.nf-field-element input.ninja-forms-field {
+    background-color: #FAFAFA;
+    border-radius: 100px;
+    border: 1px solid green;
+    margin-bottom: 20px;
+    margin: auto;
+    padding: 11px 0 11px 20px;
+    width: 330px;
+}
+
+.modal-content div.textbox-container div.nf-field div.nf-field-element input.ninja-forms-field::-webkit-input-placeholder, .modal-content div.email-container div.nf-field div.nf-field-element input.ninja-forms-field::-webkit-input-placeholder {
+    font-style: italic;
+    color: #8B8B8B;
+    font-size: 1rem;
+}
+
+.modal-content div.textbox-container div.nf-field div.nf-field-element input.ninja-forms-field:-ms-input-placeholder, .modal-content div.email-container div.nf-field div.nf-field-element input.ninja-forms-field:-ms-input-placeholder {
+    font-style: italic;
+    color: #8B8B8B;
+    font-size: 1rem;
+}
+
+.modal-content div.textbox-container div.nf-field div.nf-field-element input.ninja-forms-field::placeholder, .modal-content div.email-container div.nf-field div.nf-field-element input.ninja-forms-field::placeholder {
+    font-style: italic;
+    color: #8B8B8B;
+    font-size: 1rem;
+}
+
+.modal-content div.submit-container div.nf-field div.nf-field-element {
+    text-align: center;
+}
+
+.modal-content div.submit-container div.nf-field div.nf-field-element input.ninja-forms-field {
+    width: 130px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 4px solid #fff;
+    background-color: #4BAF6A;
+    padding: 10px 20px;
+    margin: 50px 0 0 0;
+}
+
+.modal-content .nf-after-field {
+    margin-left: 40px;
+}
+
+.modal-content .nf-form-fields-required {
+    display: none;
 }

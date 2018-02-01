@@ -27,10 +27,11 @@
         </div>
         <div class="row pb-100 justify-content-center">
             <div class="col-12 text-center">
-                 <form>
+                <form action="https://vyo.us17.list-manage.com/subscribe/post?u=f077126371f084c1b9c46940d&amp;id=28468a9382" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
                     <div class="row justify-content-center">
-                        <input class="form-control col-8 col-sm-5 col-md-3 align-self-end mr-sm-35 mb-1"  type="email" id="vyo-email" aria-describedby="emailHelp" placeholder="Ваш email">
-                        <button class="col-8 col-sm-4 col-md-3 col-lg-2 mt-md-0 mt-3 align-self-start btn btn-outline-vyo-lt text-uppercase">Підписатися!</button>
+                        <input class="form-control col-8 col-sm-5 col-md-3 align-self-end mr-sm-35 mb-1" 
+                        type="email" value="" name="EMAIL" id="mce-EMAIL" aria-describedby="emailHelp" placeholder="Ваш email"> 
+                        <button class="col-8 col-sm-4 col-md-3 col-lg-2 mt-md-0 mt-3 align-self-start btn btn-outline-vyo-lt text-uppercase" type="submit" id="mc-embedded-subscribe" name="subscribe">Підписатися!</button>
                     </div>
                 </form>
             </div>
