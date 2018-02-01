@@ -739,7 +739,6 @@ a.malinky-load-more__button {
 .modal-content {
 	background-color: $lime;
 	color: $white;
-	padding: 50px;
 	border-radius: 50px;
 
 	.close {
@@ -758,7 +757,6 @@ a.malinky-load-more__button {
 	.info {
 		font-size: 1rem;
 		width: 330px;
-		margin: 20px 35px;
 		font-family: "Open Sans";
 	}
 
@@ -813,7 +811,11 @@ a.malinky-load-more__button {
 	}
 
 	.nf-after-field {
-		margin-left: 40px;
+		margin-left: 90px;
+	}
+
+	.nf-error-msg.nf-error-field-errors {
+		margin: 10px 10px 30px 30px;
 	}
 
 	.nf-form-fields-required {

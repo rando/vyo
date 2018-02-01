@@ -357,14 +357,14 @@ jQuery('#order').on('shown.bs.modal', function () {
 });
 </script>
 
-<div class="modal" tabindex="-1" role="dialog" id="order">
+<div class="modal p-md-6 p-2" tabindex="-1" role="dialog" id="order">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="close" data-dismiss="modal">
 				<img src="<?= get_theme_file_uri('assets/images/static/') ?>close.png" alt="">
 			</div>
-			<div class="logo text-center"><img src="<?= get_theme_file_uri('assets/images/static/') ?>logo-light.png" alt=""></div>
-			<div class="info text-center">Дякую що зголосились їхати з нами! Нам ще треба ваші дані, щоб менеджер зв'язався з вами.</div>
+			<div class="logo text-center mt-5"><img src="<?= get_theme_file_uri('assets/images/static/') ?>logo-light.png" alt=""></div>
+			<div class="info text-center m-auto py-5">Дякую що зголосились їхати з нами! Нам ще треба ваші дані, щоб менеджер зв'язався з вами.</div>
 			<?= do_shortcode('[ninja_form id=1]') ?>
 		</div>
 	</div>

@@ -8560,7 +8560,6 @@ a.malinky-load-more__button:hover {
 .modal-content {
     background-color: #4BAF6A;
     color: #fff;
-    padding: 50px;
     border-radius: 50px;
 }
 
@@ -8578,7 +8577,6 @@ a.malinky-load-more__button:hover {
 .modal-content .info {
     font-size: 1rem;
     width: 330px;
-    margin: 20px 35px;
     font-family: "Open Sans";
 }
 
@@ -8630,7 +8628,11 @@ a.malinky-load-more__button:hover {
 }
 
 .modal-content .nf-after-field {
-    margin-left: 40px;
+    margin-left: 90px;
+}
+
+.modal-content .nf-error-msg.nf-error-field-errors {
+    margin: 10px 10px 30px 30px;
 }
 
 .modal-content .nf-form-fields-required {
