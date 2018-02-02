@@ -179,8 +179,15 @@ get_header(); ?>
             </div>
             <div class="w-100"></div>
             <div class="col-8">
+Здоров, колєго! Раз ти вже зайшов на нашу сторінку, то давай знайомитися:) Агенцію пригод “ВЙО” створили троє мандрівників, які мали мрії та амбіції влаштовувати веселі та вар'ятські мандрівки, так щоб із пригодами у всіх значеннях цього слова. І обрали собі таку назву, яка відповідає нашому настроєві і підтягуватиме відповідних людей зі спільними цінностями.
+<!--             Трактат філософії ВЙО:
+            - Життя надто коротке
+            - Ліпше пізно ніж ніколи
 
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam sint, eius aliquam sequi eos fugiat molestias, in temporibus illum aliquid reiciendis iste obcaecati saepe et eveniet, alias ipsam, culpa beatae! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis praesentium neque iure impedit sequi, suscipit vero quis unde cum? Beatae soluta dolorem laborum quidem maxime repellendus dolor minus fugit in.</div>
+
+             Здоров, колєго! Раз ти вже зайшов до нас, то давай знайомитися. Агенцію пригод “ВЙО” створили троє мандрівників, які люблять веселі вар'ятські мандрівки. (якщо тебе зачіпила філософія ВЙО, то ) (і відповідно шукаємо відповідних людей по духу близьких) Якщо пригоди то твоє, то вйо, пігнали!
+
+            Агенцію пригод “ВЙО” створили троє мандрівників, які мали мрії та амбіції влаштовувати веселі та вар'ятські мандрівки, так щоб із пригодами у всіх значеннях цього слова. І обрали собі таку назву, яка відповідає нашому настроєві і підтягуватиме відповідних людей зі спільними цінностями. --></div>
         </div>
 
         <!-- TODO: VIDEO about US. -->
