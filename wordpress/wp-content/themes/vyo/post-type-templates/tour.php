@@ -408,29 +408,25 @@ jQuery('#order').on('shown.bs.modal', function () {
 
 <?php if (get_site_url() != 'http://localhost:8000') { ?>
     <script type="text/javascript">
+		fbq('track', 'ViewContent', {content_name: tourData['content_name']});
 
-    </script>
-<? } ?>
+		jQuery('#tour-order-btn').click(function() {
+			fbq('track', 'AddToCart', {
+					content_name: "<?= the_title(); ?>",
+				}
+			);
 
-<script>
-	fbq('track', 'ViewContent', {content_name: tourData['content_name']});
-
-	jQuery('#tour-order-btn').click(function() {
-		fbq('track', 'AddToCart', {
-				content_name: "<?= the_title(); ?>",
-			}
-		);
-
-		//ga('send', 'event', 'Order', 'Order', 'Go');
-	});
-
-	jQuery(document).on( 'nfFormSubmitResponse', function() {
-		fbq('track', 'Purchase', {
-			content_name: tourData['content_name'],
-			currency: tourData['currency'],
-			value: tourData['price']
+			//ga('send', 'event', 'Order', 'Order', 'Go');
 		});
 
-		//ga('send', 'event', '', 'Order', 'Order', '', jQuery('.entry-title').text());
-	});
-</script>
+		jQuery(document).on( 'nfFormSubmitResponse', function() {
+			fbq('track', 'Purchase', {
+				content_name: tourData['content_name'],
+				currency: tourData['currency'],
+				value: tourData['price']
+			});
+
+			//ga('send', 'event', '', 'Order', 'Order', '', jQuery('.entry-title').text());
+		});
+    </script>
+<? } ?>
