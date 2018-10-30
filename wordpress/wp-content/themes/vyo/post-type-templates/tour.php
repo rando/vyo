@@ -14,6 +14,28 @@
 
 <?php
 
+	function currency_to_iso() {
+		$currency = get_field('currency');
+		$currency_iso = 'UAH'; // Default value
+
+		if ($currency === '$') {
+			$currency_iso = 'USD';
+		} elseif ($currency === '€') {
+			$currency_iso = 'EUR';
+		}
+
+		return $currency_iso;
+	}
+
+	function get_price() {
+		$price = $discount_price = get_field('discount-price');
+		if (!$discount_price) {
+			$price = get_field('price');
+		}
+
+		return $price;
+	}
+
 	// TODO !!!
 	// Move all common functions from 'front-page.php', 'tour.php', 'post.php' etc to some common place.
 	function get_readable_start_date($start, $end) {
@@ -102,6 +124,14 @@
 	$CONTACTS = get_guides();
 ?>
 
+<script>
+	var tourData = {
+		content_name: "<?= the_title(); ?>",
+		currency: "<?= currency_to_iso(); ?>",
+		price: <?= intval(get_price()); ?>
+	}
+</script>
+
 <article id="post-<?php the_ID(); ?>" class="tour">
 
 	<header class="entry-header tour-caption">
@@ -119,21 +149,26 @@
 
 	<div class="container tour-detail-fixed ">
 		<div class="row pt-35 pb-35">
-			<div class="col-12 col-md-5 text-center text-md-left tour-dates">
+			<div class="col-12 col-md-6 text-center text-md-left tour-dates">
 
 			<?php
 			$tour_dates = get_field('tour-dates');
 			foreach ($tour_dates as $idx => $dates):
 			?>
 		
-			<div><span><?= get_readable_start_date($dates['start-date'], $dates['end-date']); ?> - <?= $dates['end-date']; ?></span> (<?= the_field('days-num') ?> днів)</div>
+			<div>
+				<span><?= get_readable_start_date($dates['start-date'], $dates['end-date']); ?> - <?= $dates['end-date']; ?></span> (днів - <?= the_field('days-num') ?>)
+				<?php if ($dates['people-left'] === "0") { ?>
+				<span class="no-place">Місць немає</span>
+				<?php } ?>
+			</div>
 
 			<?php
 			endforeach;
 			?>
 
 			</div>
-			<div class="col-12 col-md-3 text-center text-md-left tour-price">
+			<div class="col-12 col-md-2 text-center text-md-left tour-price">
 				<?php
 				if (get_field('discount-price')) {
 					the_field('discount-price') ?> <?= the_field('currency');
@@ -145,7 +180,7 @@
 				}
 				?>	
 			</div>
-			<div class="col-12 col-md-4 text-center text-md-right tour-order text-right"><button  data-toggle="modal" data-target="#order" class="btn btn-outline-vyo-green">Їду!</button></div>
+			<div class="col-12 col-md-4 text-center text-md-right tour-order text-right"><button  data-toggle="modal" data-target="#order" class="btn btn-outline-vyo-green" id="tour-order-btn">Замовити!</button></div>
 		</div>
 	</div>
 
@@ -205,7 +240,7 @@
 			?>
                 <div class="guide text-center mb-4">
                     <img class="w-75 rounded-circle mb-35" src="<?= $contact['avatar'] ?>" alt="<?= $contact['name']; ?>">
-                    <div class="guide-name font-weight-bold text-center mb-1"><?= $contact['name']; ?></div>
+                    <div class="guide-name font-weight-bold text-center mb-1" data-email="<?= $contact['email']; ?>"><?= $contact['name']; ?></div>
                 </div>
             <?php
             endforeach;
@@ -229,11 +264,11 @@
 		?>
 
 		<div class="row mt-3">
-			<div class="col-9">
+			<div class="col-12 col-md-9">
 				<h4><?= $day ?></h4>
 			</div>
 			<div class="w-100"></div>
-			<div class="col-9"><?= $program; ?></div>
+			<div class="col-12 col-md-9"><?= $program; ?></div>
 			<div class="w-100"></div>
 			<?php
 			if ($day_images):
@@ -363,9 +398,39 @@ jQuery('#order').on('shown.bs.modal', function () {
 			<div class="close" data-dismiss="modal">
 				<img src="<?= get_theme_file_uri('assets/images/static/') ?>close.png" alt="">
 			</div>
-			<div class="logo text-center mt-5"><img src="<?= get_theme_file_uri('assets/images/static/') ?>logo-light.png" alt=""></div>
-			<div class="info text-center m-auto py-5">Дякую що зголосились їхати з нами! Нам ще треба ваші дані, щоб менеджер зв'язався з вами.</div>
+			<div class="logo text-center mt-5"><img src="<?= get_theme_file_uri('assets/images/static/') ?>logo-white.png" alt=""></div>
+			<div class="info text-center m-auto py-5">Дякую, що зацікавилися їхати з нами! Залиште контакти і ми обов'язково зв'яжемося.
+</div>
 			<?= do_shortcode('[ninja_form id=1]') ?>
 		</div>
 	</div>
 </div>
+
+<?php if (get_site_url() != 'http://localhost:8000') { ?>
+    <script type="text/javascript">
+
+    </script>
+<? } ?>
+
+<script>
+	fbq('track', 'ViewContent', {content_name: tourData['content_name']});
+
+	jQuery('#tour-order-btn').click(function() {
+		fbq('track', 'AddToCart', {
+				content_name: "<?= the_title(); ?>",
+			}
+		);
+
+		//ga('send', 'event', 'Order', 'Order', 'Go');
+	});
+
+	jQuery(document).on( 'nfFormSubmitResponse', function() {
+		fbq('track', 'Purchase', {
+			content_name: tourData['content_name'],
+			currency: tourData['currency'],
+			value: tourData['price']
+		});
+
+		//ga('send', 'event', '', 'Order', 'Order', '', jQuery('.entry-title').text());
+	});
+</script>

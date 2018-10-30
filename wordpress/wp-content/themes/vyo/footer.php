@@ -70,6 +70,12 @@
         </div>
     </div>
 <?php wp_footer(); ?>
-
+<?php if (get_site_url() != 'http://localhost:8000') { ?>
+    <script type="text/javascript">
+        jQuery('#mc-embedded-subscribe').on('click', function() {
+            ga('send', 'event', '', 'Form', 'Subscribe');
+        });
+    </script>
+<? } ?>
 </body>
 </html>

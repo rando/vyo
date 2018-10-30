@@ -7992,6 +7992,14 @@ body.all-page {
     text-decoration: none;
 }
 
+.btn-outline-vyo-dr:focus {
+    box-shadow: 0 0 0 0.2rem rgba(75, 175, 106, 0.7);
+}
+
+.btn-outline-vyo-dr:active {
+    background-color: #4BAF6A;
+}
+
 .btn-outline-vyo-green {
     border-color: #4BAF6A;
     background-color: #4BAF6A;
@@ -8129,7 +8137,7 @@ body.all-page {
 
 .tours .tour-container .tour {
     border-radius: 40px;
-    height: 560px;
+    height: 515px;
     background-color: #f8f9fa;
 }
 
@@ -8302,6 +8310,7 @@ body.all-page {
 .tour-caption .image-wrap {
     position: relative;
     display: inline-block;
+    width: 100%;
     height: 260px;
     vertical-align: middle;
     overflow: hidden;
@@ -8355,7 +8364,7 @@ body.all-page {
 }
 
 .tour-detail-fixed .tour-order button {
-    width: 100px;
+    width: 150px;
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -8491,7 +8500,7 @@ body.all-page {
 }
 
 .all-tours .tour-container .tour .tour-name-and-desc {
-    height: 190px;
+    height: 195px;
     overflow: hidden;
 }
 
@@ -8502,6 +8511,11 @@ body.all-page {
 .all-tours .tour-container .tour del {
     font-weight: normal;
     font-size: 0.8rem;
+}
+
+.all-tours .tour-container .tour .tour-price {
+    font-size: 1.25rem;
+    letter-spacing: 1px !important;
 }
 
 @media (max-width: 767px) {
@@ -8637,4 +8651,14 @@ a.malinky-load-more__button:hover {
 
 .modal-content .nf-form-fields-required {
     display: none;
+}
+
+.modal-content .nf-response-msg {
+    text-align: center;
+}
+
+.no-place {
+    color: #a20000;
+    font-size: 0.9rem;
+    padding-left: 10px;
 }

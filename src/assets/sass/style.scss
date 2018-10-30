@@ -121,6 +121,14 @@ body.all-page {
 		color: $dark;
 		text-decoration: none;
 	}
+
+	&:focus {
+		box-shadow: 0 0 0 0.2rem rgba(75, 175, 106, 0.7);
+	}
+
+	&:active {
+		background-color: $lime;
+	}
 }
 
 .btn-outline-vyo-green {
@@ -276,7 +284,7 @@ body.all-page {
 
 		.tour {
 			border-radius: 40px;
-			height: 560px;
+			height: 515px;
 			background-color: $light;
 
 			&:hover {
@@ -468,6 +476,7 @@ body.all-page {
 	.image-wrap {
 		position: relative;
 		display: inline-block;
+		width: 100%;
 	    height: 260px;
 	    vertical-align: middle;
 	    overflow: hidden;
@@ -524,7 +533,7 @@ body.all-page {
 .tour-detail-fixed {
 	.tour-order {
 		button {
-			width: 100px;
+			width: 150px;
 			text-transform: uppercase;
 			font-weight: bold;
 
@@ -665,7 +674,7 @@ body.all-page {
 			}
 
 			.tour-name-and-desc {
-				height: 190px;
+				height: 195px;
 				overflow: hidden;
 			}
 
@@ -676,6 +685,11 @@ body.all-page {
 			del {
 				font-weight: normal;
 				font-size: 0.8rem;
+			}
+
+			.tour-price {
+				font-size: 1.25rem;
+				letter-spacing: 1px !important;
 			}
 		}
 	}
@@ -821,5 +835,15 @@ a.malinky-load-more__button {
 	.nf-form-fields-required {
 		display: none;
 	}
+
+	.nf-response-msg {
+		text-align: center;
+	}
 }
 
+.no-place {
+	color: #a20000;
+	font-size: 0.9rem;
+	padding-left: 10px;
+
+}

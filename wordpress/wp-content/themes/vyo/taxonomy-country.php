@@ -83,7 +83,7 @@ get_header(); ?>
 	                    <div class="tour-description d-block d-sm-block pr-3"><?= the_content(); ?></div>
 	               	</div>
 	                <div class="tour-bottom">
-						<div class="tour-price my-4 my-md-2 ml-1 font-weight-bold">
+						<div class="tour-price my-4 my-md-4 ml-1 font-weight-bold">
 							<?php
 							if (get_field('discount-price')) {
 								the_field('discount-price') ?> <?= the_field('currency');

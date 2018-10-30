@@ -81,7 +81,7 @@ get_header(); ?>
 	                    <div class="tour-description d-block d-sm-block pr-3"><?= the_content(); ?></div>
 	               	</div>
 	                <div class="tour-bottom">
-						<div class="tour-price my-4 my-md-2 ml-1 font-weight-bold">
+						<div class="tour-price my-4 my-md-4 ml-1 font-weight-bold">
 							<?php
 							if (get_field('discount-price')) {
 								the_field('discount-price') ?> <?= the_field('currency');
@@ -118,7 +118,7 @@ get_header(); ?>
 
 		        echo paginate_links(array(
 		            'base' => get_pagenum_link(1) . '%_%',
-		            'format' => '/page/%#%',
+		            'format' => '?paged=%#%',
 		            'current' => $current_page,
 		            'total' => $total_pages,
 		            'prev_text'    => __('« prev'),

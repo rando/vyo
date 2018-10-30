@@ -221,10 +221,10 @@ get_header(); ?>
 		?>
             <div class="col-md-4 col-12 mb-3 text-center">
                 <div class="guide">
-                    <img class="w-75 rounded-circle mb-35" src="<?= get_the_post_thumbnail_url(); ?>" alt="">
+                    <img class="w-75 rounded-circle mb-475" src="<?= get_the_post_thumbnail_url(); ?>" alt="">
                     <div class="guide-name font-weight-bold text-center mb-1"><?= the_title(); ?></div>
                     <div class="guide-desc mb-4"><?= the_content() ?></div>
-                    <div class="guide-socials"><a href="<?= the_field('facebook'); ?>">Facebook</a><a href="<?= the_field('instagram'); ?>">Instagram</a></div>
+                    <!-- <div class="guide-socials"><a href="<?= the_field('facebook'); ?>">Facebook</a><a href="<?= the_field('instagram'); ?>">Instagram</a></div> -->
                 </div>
             </div>
   		<?php
@@ -239,7 +239,7 @@ get_header(); ?>
         ?>
 	
         <div class="row mb-5 no-gutters tours">
-            <div class="col-12 text-center"><h1>Найближчі Подорожі</h1></div>
+            <div class="col-12 mb-475 text-center"><h1>Найближчі Подорожі</h1></div>
 
             <div class="w-100"></div>
 
@@ -247,8 +247,8 @@ get_header(); ?>
 			<?php
 			while ( $tours->have_posts() ):
 				$tours->the_post();
-			?>
 
+			?>
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tour-container">
                 <div class="tour">
                     <div><img class="w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt=""></div>

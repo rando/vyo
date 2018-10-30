@@ -20,15 +20,18 @@ if (false) {
 
 get_header(); ?>
 
+
+
 <?php
 while ( have_posts() ): the_post(); 
-	//tour
-	if (true) {
+	$post_type = get_post_type();
+
+	if ($post_type === "tours") {
 		get_template_part( 'post-type-templates/tour' );
 	}
 	//post
-	if (false) {
-
+	if ($post_type === "post") {
+		get_template_part( 'post-type-templates/post' );
 	}
 
 	// page = contact, about us, ...
