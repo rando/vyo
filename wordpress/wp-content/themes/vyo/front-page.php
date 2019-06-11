@@ -54,18 +54,25 @@ get_header(); ?>
 		return $featured;			
 	}
 
-	function get_guides() {
-		$args = array(
-			'numberposts'	=> -1,
-			'post_type'		=> 'guides',
-			'meta_key'		=> 'order',
-			'orderby'		=> 'meta_value',
-			'order'			=> 'ASC'
-		);
+  function get_guides() {
+    $args = array(
+      'numberposts' => -1,
+      'post_type'   => 'guides',
+      'meta_query'     => array(
+        array(
+          'key'        => 'featured',
+          'compare'    => '=',
+          'value'      => true
+        )
+      ),
+      'meta_key'    => 'order',
+      'orderby'   => 'meta_value',
+      'order'     => 'ASC'
+    );
 
-		$guides = new WP_Query($args);
-		return $guides;			
-	}
+    $guides = new WP_Query($args);
+    return $guides;     
+  }
 
 	function get_tours() {
 		$args = array(
@@ -108,7 +115,8 @@ get_header(); ?>
     <div id="carousel-header-cover" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
       	<?php 
-      	while ($i < $posts_nums): 
+        // remove +1 when competition ended
+      	while ($i < $posts_nums+1): 
       	?>
         <li data-target="#carousel-header-cover" data-slide-to="<?= $i ?>" class="<?= ($i == 0) ? "active" : "" ?>"></li>
    		<?php 
@@ -117,14 +125,42 @@ get_header(); ?>
    		?>
       </ol>
 
-      <div class="carousel-inner">
+      <!-- TODO Remove when competition ended -->
+      <!-- START -->
+
+      <div class="carousel-inner competition">
+        <div class="carousel-item active">
+          <div class="shadow-top"></div>
+          <div class="shadow-bottom"></div>
+          <img class="d-block w-100" src="https://vyo.travel/wp-content/uploads/2019/04/20170707-tmb_4339-gorgany.jpg" alt="First slide">
+          <div class="carousel-caption d-none d-block h-85">
+            <!-- TODO: Add days wording -->
+            <div class="d-flex align-items-center flex-column justify-content-between h-100 mt-4">
+              <div class="mt-475">
+
+                <h3 class="mb-3"><a target="_blank" href="https://www.gorgany.com/stories/salewa/">Купуєш Salewa?</a></h3>
+                <p><a target="_blank" style="text-decoration: none; color: #fff; font-size: 1.5rem;" href="https://www.gorgany.com/stories/salewa/">Маєш шанс виграти похід навколо Монблану</a></p>
+                
+              </div>
+              <div class="mt-auto mb-6">
+                <a target="_blank" href="https://www.gorgany.com/stories/salewa/" role="button" class="btn btn-outline-vyo-lt">Умови розіграшу</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- END -->
+
 		<?php
 		$i = 0;
 		while ( $featured->have_posts() ):
 			$featured->the_post();
 		?>
 
+        <div class="carousel-item">
+        <!-- TODO RETURN when competition ended 
         <div class="carousel-item <?= ($i == 0) ? "active" : "" ?>">
+        -->
           <div class="shadow-top"></div>
           <div class="shadow-bottom"></div>
           <img class="d-block w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt="First slide">

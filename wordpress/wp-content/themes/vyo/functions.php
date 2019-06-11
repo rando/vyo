@@ -600,20 +600,17 @@ function insert_fb_in_head() {
     global $post;
     if ( !is_singular()) //if it is not a post or a page
         return;
-        echo '<meta property="og:title" content="' . get_the_title() . '"/>';
-        echo '<meta property="og:type" content="article"/>';
-        echo '<meta property="og:url" content="' . get_permalink() . '"/>';
-        echo '<meta property="og:site_name" content="ВЙО. Агенція пригод/>';
-    if(!has_post_thumbnail( $post->ID )) { //the post does not have featured image, use a default image
-        $default_image="https://vyo.travel/wp-content/themes/vyo/assets/images/static/logo-green.png"; //replace this with a default image on your server or an image in your media library
-        echo '<meta property="og:image" content="' . $default_image . '"/>';
-    }
-    else{
-        $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
-        echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
-    }
-    echo "
-";
+
+    echo '<meta property="og:title" content="' . get_the_title(get_the_ID()) . '"/>';
+    echo '<meta property="og:type" content="article"/>';
+    echo '<meta property="og:url" content="' . get_permalink() . '"/>';
+    echo '<meta property="og:site_name" content="ВЙО. Агенція пригод/>';
+    echo '<meta property="og:description" content="' . get_the_title(get_the_ID()) . '"/>';
+
+    $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+    echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+
+    echo "";
 }
 add_action( 'wp_head', 'insert_fb_in_head', 5 );
 

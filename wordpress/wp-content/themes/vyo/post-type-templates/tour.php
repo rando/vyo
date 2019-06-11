@@ -160,6 +160,11 @@
 				<span><?= get_readable_start_date($dates['start-date'], $dates['end-date']); ?> - <?= $dates['end-date']; ?></span> (днів - <?= the_field('days-num') ?>)
 				<?php if ($dates['people-left'] === "0") { ?>
 				<span class="no-place">Місць немає</span>
+				<?php } ?> 
+				<?php if ($dates['people-left'] && intval($dates['people-left']) < 4) { ?>
+					<span class="no-place"><?= $dates['people-left'] ?>
+					<?php echo (intval($dates['people-left']) == 1) ? "місце" : "місця" ?>
+					</span>
 				<?php } ?>
 			</div>
 

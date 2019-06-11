@@ -42,7 +42,7 @@ get_header(); ?>
 			'meta_key'			=> 'date-start',
 			'orderby'			=> 'meta_value',
 			'order'				=> 'ASC',
-			'posts_per_page'	=> 2,
+			'posts_per_page'	=> 30,
 			'paged'				=> $paged,
 		);
 
