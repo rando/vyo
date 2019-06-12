@@ -268,6 +268,62 @@ body.all-page {
 	}
 }
 
+.articles {
+	.article-container {
+		padding: 5px;
+		.article {
+			border-radius: 40px;
+			background-color: $light;
+
+			&:hover {
+				box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.3); 
+			}
+
+			img {
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+				width: 50%;
+			}
+
+			h3 {
+					font-size: 1.75rem;
+
+			        a {
+			        	color: $dark;
+
+			        	&:hover {
+			        		text-decoration: none;
+			        	}
+			        }	
+			}
+		}
+	}
+}
+
+.article {
+	p {
+		img {
+			margin: 5px;
+			border-radius: 10px;
+			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
+		}
+	}
+}
+
+.blog {
+	.tours {
+		.tour-container {
+			.tour {
+				height: 430px;
+
+				.tour-name {
+					height: auto;
+				}
+			}
+		}
+	}
+}
+
 .tours {
 	.btn {
 		transition : border 500ms ease-out;
@@ -467,7 +523,7 @@ body.all-page {
 }
 
 /*Single page*/
-.tour-caption {
+.tour-caption, .article-caption {
 	width: 100%;
 	height: 260px;
 	margin: 0;
@@ -528,6 +584,18 @@ body.all-page {
 			}	
 		}
 	}
+}
+
+.article-caption {
+	height: 400px;
+	.image-wrap {
+		height: 400px;
+	}
+
+	.image-content {
+		top: -400px;
+	}
+
 }
 
 .tour-detail-fixed {

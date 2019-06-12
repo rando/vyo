@@ -8123,6 +8123,51 @@ body.all-page {
     font-size: 1.5rem;
 }
 
+.articles .article-container {
+    padding: 5px;
+}
+
+.articles .article-container .article {
+    border-radius: 40px;
+    background-color: #f8f9fa;
+}
+
+.articles .article-container .article:hover {
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.3);
+}
+
+.articles .article-container .article img {
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    width: 50%;
+}
+
+.articles .article-container .article h3 {
+    font-size: 1.75rem;
+}
+
+.articles .article-container .article h3 a {
+    color: #343a40;
+}
+
+.articles .article-container .article h3 a:hover {
+    text-decoration: none;
+}
+
+.article p img {
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.blog .tours .tour-container .tour {
+    height: 430px;
+}
+
+.blog .tours .tour-container .tour .tour-name {
+    height: auto;
+}
+
 .tours .btn {
     transition: border 500ms ease-out;
 }
@@ -8300,14 +8345,14 @@ body.all-page {
     height: 33px;
 }
 
-.tour-caption {
+.tour-caption, .article-caption {
     width: 100%;
     height: 260px;
     margin: 0;
     padding: 0 !important;
 }
 
-.tour-caption .image-wrap {
+.tour-caption .image-wrap, .article-caption .image-wrap {
     position: relative;
     display: inline-block;
     width: 100%;
@@ -8317,7 +8362,7 @@ body.all-page {
     z-index: 1;
 }
 
-.tour-caption .image-wrap img {
+.tour-caption .image-wrap img, .article-caption .image-wrap img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -8326,7 +8371,7 @@ body.all-page {
     vertical-align: middle;
 }
 
-.tour-caption .image-wrap .mask {
+.tour-caption .image-wrap .mask, .article-caption .image-wrap .mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -8335,20 +8380,20 @@ body.all-page {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.11) 0%, rgba(0, 0, 0, 0.64) 100%);
 }
 
-.tour-caption .image-content {
+.tour-caption .image-content, .article-caption .image-content {
     position: relative;
     top: -260px;
     z-index: 2;
 }
 
-.tour-caption .image-content .countries {
+.tour-caption .image-content .countries, .article-caption .image-content .countries {
     padding: 45px 0 0 0;
     color: #FFFFFF;
     font-size: 1.5rem;
     line-height: 36px;
 }
 
-.tour-caption .image-content .entry-title {
+.tour-caption .image-content .entry-title, .article-caption .image-content .entry-title {
     color: #FFFFFF;
     font-size: 4.25rem;
     font-weight: bold;
@@ -8356,11 +8401,23 @@ body.all-page {
 }
 
 @media (max-width: 1199px) {
-    .tour-caption .image-content .entry-title {
+    .tour-caption .image-content .entry-title, .article-caption .image-content .entry-title {
         font-size: 2.5rem;
         font-weight: bold;
         line-height: 2.75rem;
     }
+}
+
+.article-caption {
+    height: 400px;
+}
+
+.article-caption .image-wrap {
+    height: 400px;
+}
+
+.article-caption .image-content {
+    top: -400px;
 }
 
 .tour-detail-fixed .tour-order button {
