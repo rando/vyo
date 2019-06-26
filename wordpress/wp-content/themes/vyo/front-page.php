@@ -115,8 +115,7 @@ get_header(); ?>
     <div id="carousel-header-cover" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
       	<?php 
-        // remove +1 when competition ended
-      	while ($i < $posts_nums+1): 
+      	while ($i < $posts_nums): 
       	?>
         <li data-target="#carousel-header-cover" data-slide-to="<?= $i ?>" class="<?= ($i == 0) ? "active" : "" ?>"></li>
    		<?php 
@@ -125,16 +124,15 @@ get_header(); ?>
    		?>
       </ol>
 
-      <!-- TODO Remove when competition ended -->
-      <!-- START -->
 
       <div class="carousel-inner competition">
+      <!-- TODO Remove when competition ended -->
+      <!-- 
         <div class="carousel-item active">
           <div class="shadow-top"></div>
           <div class="shadow-bottom"></div>
           <img class="d-block w-100" src="https://vyo.travel/wp-content/uploads/2019/04/20170707-tmb_4339-gorgany.jpg" alt="First slide">
           <div class="carousel-caption d-none d-block h-85">
-            <!-- TODO: Add days wording -->
             <div class="d-flex align-items-center flex-column justify-content-between h-100 mt-4">
               <div class="mt-475">
 
@@ -149,7 +147,7 @@ get_header(); ?>
           </div>
         </div>
 
-        <!-- END -->
+        -->
 
 		<?php
 		$i = 0;
@@ -157,10 +155,12 @@ get_header(); ?>
 			$featured->the_post();
 		?>
 
+        
+        <!-- TODO RETURN when competition ended
         <div class="carousel-item">
-        <!-- TODO RETURN when competition ended 
-        <div class="carousel-item <?= ($i == 0) ? "active" : "" ?>">
         -->
+        <div class="carousel-item <?= ($i == 0) ? "active" : "" ?>">
+        
           <div class="shadow-top"></div>
           <div class="shadow-bottom"></div>
           <img class="d-block w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt="First slide">

@@ -42,7 +42,7 @@
             <div class="col-12 col-md-6 text-center menu">
                 <a class="m-2 <?= ($GLOBALS['active_page'] == "") ? 'active' : '' ?>" href="/">Головна</a href="#">
                 <a class="m-2 <?= ($GLOBALS['active_page'] === "tours_list" || $GLOBALS['active_page'] === "tour") ? 'active' : '' ?>" href="/tours">Мандрівки</a href="#">
-                <!-- <a class="m-2" href="#">Блог</a href="#"> -->
+                <a class="m-2 <?= ($GLOBALS['active_page'] === "blog") ? 'active' : '' ?>" href="/blog">Блог</a href="#">
                 <a class="m-2 <?= ($GLOBALS['active_page'] === "about") ? 'active' : '' ?>" href="/about-us">Про нас</a href="#">
                 <a class="m-2 <?= ($GLOBALS['active_page'] === "contacts") ? 'active' : '' ?>" href="/contacts">Контакти</a href="#">
             </div>

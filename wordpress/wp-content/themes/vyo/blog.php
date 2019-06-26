@@ -44,7 +44,7 @@ $posts = get_blog_posts();
 				<h3><a href="<?= the_permalink(); ?>"><?= the_title(); ?></a></h3>
 				<?php
 				the_content( sprintf(
-				__( '<span class="readmore btn btn-outline-vyo-dr align-bottom">Читати далі</span><span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
+				__( '<span class="readmore btn btn-outline-vyo-dr align-bottom mt-4">Читати далі</span><span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
 				get_the_title()
 				) );
 				?>
