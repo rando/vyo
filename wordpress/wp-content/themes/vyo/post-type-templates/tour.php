@@ -130,7 +130,16 @@
 		currency: "<?= currency_to_iso(); ?>",
 		price: <?= intval(get_price()); ?>
 	}
+
+	var index;
 </script>
+
+<div id="lightbox">
+    <p>Клікніть щоб закрити</p>
+    <div id="content">
+        <img src="#" />
+    </div>
+</div>
 
 <article id="post-<?php the_ID(); ?>" class="tour">
 
@@ -285,11 +294,13 @@
 
 						foreach ($day_images as $idx => $image):
 							$image_url = $image['sizes']['medium'];
-							$image_large_url = $image['sizes']['medium_large'];
+							$image_large_url = $image['url'];
 						?>
-						<img src="<?= $image_url ?>"  data-large-img="<?= $image_large_url; ?>" alt="">
+						<a href="<?= $image_large_url; ?>" class="lightbox_trigger">
+							<img src="<?= $image_url ?>"  data-large-img="<?= $image_large_url; ?>" alt="">
+						</a>
 						<?php
-						endforeach
+						endforeach;
 						?>
 					</div>
 				</div>
@@ -339,11 +350,13 @@
 				<?php
 				foreach (get_field('gallery') as $idx => $image):
 					$image_url = $image['sizes']['medium'];
-					$image_large_url = $image['sizes']['medium_large'];
+					$image_large_url = $image['url'];
 				?>
-				<img src="<?= $image_url ?>" data-large-img="<?= $image_large_url; ?>" alt="">
+				<a href="<?= $image_large_url; ?>" class="lightbox_trigger">
+					<img src="<?= $image_url ?>" data-large-img="<?= $image_large_url; ?>" alt="">
+				</a>
 				<?php
-				endforeach
+				endforeach;
 				?>
 			</div>
 		</div>
@@ -360,31 +373,33 @@
 			<div class="col-12 col-md-4 contact-info">
 				<div>Пишіть</div>
 				<?php
-				foreach ($CONTACTS as $idx => $contact):
+				// foreach ($CONTACTS as $idx => $contact):
 				?>
-				<div class="font-weight-bold"><a href="mailto:<?= $contact['email']; ?>"><?= $contact['email']; ?></a></div>
+				<div class="font-weight-bold"><a href="mailto:info@vyo.travel">info@vyo.travel</a></div>
 				<?php
-				endforeach;
+				// endforeach;
 				?>
 			</div>
 			<div class="col-12 col-md-4 contact-info">
 				<div>Дзвоніть</div>
 				<?php
-				foreach ($CONTACTS as $idx => $contact):
+				//foreach ($CONTACTS as $idx => $contact):
 				?>
-				<div class="font-weight-bold"><?= $contact['phone']; ?></div>
 				<?php
-				endforeach;
-				?>				
+				//endforeach;
+				?>
+				<div class="font-weight-bold"><a href="tel:+380967816537">+38 096 781 65 37</a></div>
+				<div class="font-weight-bold"><a href="tel:+380930950096">+38 093 095 00 96</a></div>				
 			</div>
 			<div class="col-12 col-md-4 contact-info">
 				<div>Фейсбучте</div>
 				<?php
-				foreach ($CONTACTS as $idx => $contact):
+				// foreach ($CONTACTS as $idx => $contact):
 				?>
-				<div class="font-weight-bold"><a href="https://fb.com/<?= $contact['facebook']; ?>"><?= $contact['facebook']; ?></a></div>
+				<!-- <div class="font-weight-bold"><a href="https://fb.com/<?= $contact['facebook']; ?>"><?= $contact['facebook']; ?></a></div> -->
+				<div class="font-weight-bold"><a href="https://fb.com/vyo.travel">vyo.travel</a></div>
 				<?php
-				endforeach;
+				// endforeach;
 				?>
 			</div>
 		</div>
@@ -435,3 +450,84 @@ jQuery('#order').on('shown.bs.modal', function () {
 		});
     </script>
 <? } ?>
+
+<script type="text/javascript">
+function show_image(image_href) {
+	if (jQuery('#lightbox').length > 0) {
+		jQuery('#content').html('<img src="' + image_href + '" />');  	
+		jQuery('#lightbox').show();
+	}
+	else {
+		var lightbox = 
+		'<div id="lightbox">' +
+			'<p>Click to close</p>' +
+			'<div id="content">' +
+				'<img src="' + image_href +'" />' +
+			'</div>' +	
+		'</div>';
+			
+		jQuery('body').append(lightbox);
+	}
+}
+
+jQuery(document).ready(function(jQuery) {
+	jQuery('.lightbox_trigger').click(function(e) {
+		e.preventDefault();
+		$this = jQuery(this);
+		var image_href = $this.attr("href");
+		
+		show_image(image_href);
+
+		$all_images = jQuery('.lightbox_trigger');
+		$all_images.each(function(i){
+			if (jQuery(this).attr("href") == image_href) {
+				index = i;
+			}
+		});
+	});
+	
+	jQuery(document).on('click', '#lightbox', function() {
+		jQuery('#lightbox').hide();
+	});
+
+	jQuery('#lightbox').on('click', function() {
+		jQuery('#lightbox').hide();
+	});
+
+	jQuery('#lightbox p').on('click', function() {
+		jQuery('#lightbox').hide();
+	});
+
+	jQuery(document).keyup(function(e) {
+		if (e.keyCode === 27) {
+			jQuery('#lightbox').hide();
+		}
+	});
+
+	// Left
+	jQuery(document).keyup(function(e) {
+		if (e.keyCode === 37) {
+			$all_images = jQuery('.lightbox_trigger');
+			if (index > 0) {
+				index = index-1;
+				var img = $all_images[index];
+				var image_href = jQuery(img).attr("href");
+				show_image(image_href);
+			}
+		}
+	});
+
+	// Right
+	jQuery(document).keyup(function(e) {
+		if (e.keyCode === 39) {
+			$all_images = jQuery('.lightbox_trigger');
+			if (index+1 < $all_images.length) {
+				index = index+1;
+				var img = $all_images[index];
+				var image_href = jQuery(img).attr("href");
+				show_image(image_href);
+			}
+		}
+	});
+});
+</script>

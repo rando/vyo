@@ -399,11 +399,11 @@ msgstr "Це основна таблиця всіх сайтів мережі. �
 msgid "Add New takes you to the Add New Site screen. You can search for a site by Name, ID number, or IP address. Screen Options allows you to choose how many sites to display on one page."
 msgstr "Кнопка \"Додати\" веде у розділ \"Додати новий сайт\". Можна шукати сайт за назвою, ідентифікатором або IP-адресою. В розділі \"Параметри екрану\" можна вибрати кількість сайтів для відображення на одній сторінці."
 
-#: wp-admin/network/site-users.php:339 wp-admin/network/user-new.php:117
+#: wp-admin/network/user-new.php:117 wp-admin/network/site-users.php:339
 msgid "A password reset link will be sent to the user via email."
 msgstr "Посилання на скидання паролю буде надіслане користувачу по e-mail."
 
-#: wp-admin/network/site-users.php:307 wp-admin/network/user-new.php:129
+#: wp-admin/network/user-new.php:129 wp-admin/network/site-users.php:307
 msgid "Add User"
 msgstr "Додати користувача"
 
@@ -451,29 +451,29 @@ msgstr "Фільтрувати список користувачів сайту"
 msgid "Network enabled themes are not shown on this screen."
 msgstr "Дозволені для мережі теми тут не показані."
 
-#: wp-admin/network/site-themes.php:201 wp-admin/network/themes.php:291
+#: wp-admin/network/themes.php:291 wp-admin/network/site-themes.php:201
 msgid "No theme selected."
 msgstr "Жодної теми не вибрано."
 
-#: wp-admin/network/site-themes.php:197 wp-admin/network/themes.php:279
+#: wp-admin/network/themes.php:279 wp-admin/network/site-themes.php:197
 msgid "%s theme disabled."
 msgid_plural "%s themes disabled."
 msgstr[0] "Вимкнено %s тему."
 msgstr[1] "Вимкнено %s теми."
 msgstr[2] "Вимкнено %s тем."
 
-#: wp-admin/network/site-themes.php:195 wp-admin/network/themes.php:277
+#: wp-admin/network/themes.php:277 wp-admin/network/site-themes.php:195
 msgid "Theme disabled."
 msgstr "Тема вимкнена."
 
-#: wp-admin/network/site-themes.php:189 wp-admin/network/themes.php:271
+#: wp-admin/network/themes.php:271 wp-admin/network/site-themes.php:189
 msgid "%s theme enabled."
 msgid_plural "%s themes enabled."
 msgstr[0] "Увімкнено %s тему."
 msgstr[1] "Увімкнено %s теми."
 msgstr[2] "Увімкнено %s тем."
 
-#: wp-admin/network/site-themes.php:187 wp-admin/network/themes.php:269
+#: wp-admin/network/themes.php:269 wp-admin/network/site-themes.php:187
 msgid "Theme enabled."
 msgstr "Тема увімкнена."
 
@@ -595,8 +595,8 @@ msgid "Attributes"
 msgstr "Атрибути"
 
 #. translators: %s: site name
-#: wp-admin/network/site-info.php:131 wp-admin/network/site-settings.php:84
-#: wp-admin/network/site-themes.php:167 wp-admin/network/site-users.php:200
+#: wp-admin/network/site-info.php:131 wp-admin/network/site-users.php:200
+#: wp-admin/network/site-themes.php:167 wp-admin/network/site-settings.php:84
 msgid "Edit Site: %s"
 msgstr "Редагувати сайт: %s"
 
@@ -604,49 +604,49 @@ msgstr "Редагувати сайт: %s"
 msgid "Site info updated."
 msgstr "Інформація про сайт оновлена."
 
-#: wp-admin/network/site-info.php:42 wp-admin/network/site-settings.php:40
-#: wp-admin/network/site-themes.php:63 wp-admin/network/site-users.php:56
+#: wp-admin/network/site-info.php:42 wp-admin/network/site-users.php:56
+#: wp-admin/network/site-themes.php:63 wp-admin/network/site-settings.php:40
 msgid "The requested site does not exist."
 msgstr "Запитуваний сайт не існує."
 
-#: wp-admin/network/site-info.php:37 wp-admin/network/site-settings.php:36
-#: wp-admin/network/site-themes.php:57 wp-admin/network/site-users.php:52
+#: wp-admin/network/site-info.php:37 wp-admin/network/site-users.php:52
+#: wp-admin/network/site-themes.php:57 wp-admin/network/site-settings.php:36
 msgid "Invalid site ID."
 msgstr "Неправильний ідентифікатор сайту."
 
-#: wp-admin/network/site-info.php:30 wp-admin/network/site-new.php:30
-#: wp-admin/network/site-settings.php:29 wp-admin/network/site-themes.php:29
-#: wp-admin/network/site-users.php:32 wp-admin/network/sites.php:42
+#: wp-admin/network/site-info.php:30 wp-admin/network/site-users.php:32
+#: wp-admin/network/site-new.php:30 wp-admin/network/site-themes.php:29
+#: wp-admin/network/site-settings.php:29 wp-admin/network/sites.php:42
 msgid "<a href=\"https://codex.wordpress.org/Network_Admin_Sites_Screen\">Documentation on Site Management</a>"
 msgstr "<a href=\"https://codex.wordpress.org/Network_Admin_Sites_Screen\">Документація з управління сайтами</a>"
 
-#: wp-admin/network/site-info.php:25 wp-admin/network/site-settings.php:24
-#: wp-admin/network/site-themes.php:24 wp-admin/network/site-users.php:27
+#: wp-admin/network/site-info.php:25 wp-admin/network/site-users.php:27
+#: wp-admin/network/site-themes.php:24 wp-admin/network/site-settings.php:24
 msgid "<strong>Settings</strong> &mdash; This page shows a list of all settings associated with this site. Some are created by WordPress and others are created by plugins you activate. Note that some fields are grayed out and say Serialized Data. You cannot modify these values due to the way the setting is stored in the database."
 msgstr "<strong>Налаштування</strong> &mdash; ця сторінка відображає список всіх налаштувань цього сайту. Деякі з них створені WordPress, інші створені плагінами, які ви задіяли. Зауважте, деякі поля виділені сірим кольором і містять слова \"Serialized Data\". Ці значення не можна змінити через спосіб їх зберігання в базі даних."
 
-#: wp-admin/network/site-info.php:24 wp-admin/network/site-settings.php:23
-#: wp-admin/network/site-themes.php:23 wp-admin/network/site-users.php:26
+#: wp-admin/network/site-info.php:24 wp-admin/network/site-users.php:26
+#: wp-admin/network/site-themes.php:23 wp-admin/network/site-settings.php:23
 msgid "<strong>Themes</strong> &mdash; This area shows themes that are not already enabled across the network. Enabling a theme in this menu makes it accessible to this site. It does not activate the theme, but allows it to show in the site&#8217;s Appearance menu. To enable a theme for the entire network, see the <a href=\"%s\">Network Themes</a> screen."
 msgstr "<strong>Теми</strong> &mdash; тут показані теми, які ще не дозволені для всієї мережі. Якщо дозволити тему в цьому меню, вона стане доступною для цього сайту. Це не увімкне тему, але вона буде відображатися в меню \"Вигляд\". Щоби дозволити тему для всієї мережі, перейдіть на екран <a href=\"%s\">\"Теми мережі\"</a>."
 
-#: wp-admin/network/site-info.php:23 wp-admin/network/site-settings.php:22
-#: wp-admin/network/site-themes.php:22 wp-admin/network/site-users.php:25
+#: wp-admin/network/site-info.php:23 wp-admin/network/site-users.php:25
+#: wp-admin/network/site-themes.php:22 wp-admin/network/site-settings.php:22
 msgid "<strong>Users</strong> &mdash; This displays the users associated with this site. You can also change their role, reset their password, or remove them from the site. Removing the user from the site does not remove the user from the network."
 msgstr "<strong>Користувачі</strong> &mdash; тут відображаються користувачі, пов’язані з цим сайтом. Ви можете змінити їх роль, скинути їх пароль, або видалити їх із сайту. Видалення користувача з сайту не видаляє його з мережі."
 
-#: wp-admin/network/site-info.php:22 wp-admin/network/site-settings.php:21
-#: wp-admin/network/site-themes.php:21 wp-admin/network/site-users.php:24
+#: wp-admin/network/site-info.php:22 wp-admin/network/site-users.php:24
+#: wp-admin/network/site-themes.php:21 wp-admin/network/site-settings.php:21
 msgid "<strong>Info</strong> &mdash; The site URL is rarely edited as this can cause the site to not work properly. The Registered date and Last Updated date are displayed. Network admins can mark a site as archived, spam, deleted and mature, to remove from public listings or disable."
 msgstr "<strong>Інформація</strong> &mdash; посилання сайту (URL) рідко редагуються, бо це може спричинити неполадки сайту. Відображається дата реєстрації та останнього оновлення. Адміністратори мережі можуть позначити сайт як \"Заархівований\", \"Спам\", \"Видалений\", або \"Для дорослих\", щоби видалити його з публічних списків або вимкнути."
 
-#: wp-admin/network/site-info.php:21 wp-admin/network/site-settings.php:20
-#: wp-admin/network/site-themes.php:20 wp-admin/network/site-users.php:23
+#: wp-admin/network/site-info.php:21 wp-admin/network/site-users.php:23
+#: wp-admin/network/site-themes.php:20 wp-admin/network/site-settings.php:20
 msgid "The menu is for editing information specific to individual sites, particularly if the admin area of a site is unavailable."
 msgstr "Це меню призначене для зміни інформації про окремі сайти, зокрема, коли майстерня сайту недоступна."
 
-#: wp-admin/network/site-info.php:14 wp-admin/network/site-settings.php:14
-#: wp-admin/network/site-users.php:14
+#: wp-admin/network/site-info.php:14 wp-admin/network/site-users.php:14
+#: wp-admin/network/site-settings.php:14
 msgid "Sorry, you are not allowed to edit this site."
 msgstr "Вибачте, вам не дозволено редагувати цей сайт."
 
@@ -876,11 +876,11 @@ msgstr "Оперативні налаштування містять поля н
 msgid "This screen sets and changes options for the network as a whole. The first site is the main site in the network and network options are pulled from that original site&#8217;s options."
 msgstr "На цьому екрані можна задати і змінити параметри мережі в цілому. Перший сайт є основним сайтом у мережі, і параметри мережі беруться з параметрів основного сайту."
 
-#: wp-admin/network/menu.php:55 wp-admin/network/settings.php:19
+#: wp-admin/network/settings.php:19 wp-admin/network/menu.php:55
 msgid "Network Settings"
 msgstr "Налаштування мережі"
 
-#: wp-admin/network/menu.php:41 wp-admin/network/themes.php:253
+#: wp-admin/network/themes.php:253 wp-admin/network/menu.php:41
 msgctxt "theme"
 msgid "Add New"
 msgstr "Додати"
@@ -897,8 +897,8 @@ msgstr "Теми %s"
 msgid "All Sites"
 msgstr "Всі сайти"
 
-#: wp-admin/network/menu.php:22 wp-admin/network/upgrade.php:15
-#: wp-admin/network/upgrade.php:40 wp-admin/network/upgrade.php:131
+#: wp-admin/network/upgrade.php:15 wp-admin/network/upgrade.php:40
+#: wp-admin/network/upgrade.php:131 wp-admin/network/menu.php:22
 msgid "Upgrade Network"
 msgstr "Оновити мережу"
 
@@ -906,11 +906,11 @@ msgstr "Оновити мережу"
 msgid "Updates"
 msgstr "Оновлення"
 
-#: wp-admin/network/index.php:51 wp-admin/network/site-info.php:31
-#: wp-admin/network/site-new.php:31 wp-admin/network/site-settings.php:30
-#: wp-admin/network/site-themes.php:30 wp-admin/network/site-users.php:33
-#: wp-admin/network/sites.php:43 wp-admin/network/user-new.php:27
-#: wp-admin/network/users.php:180
+#: wp-admin/network/site-info.php:31 wp-admin/network/user-new.php:27
+#: wp-admin/network/index.php:51 wp-admin/network/site-users.php:33
+#: wp-admin/network/users.php:180 wp-admin/network/site-new.php:31
+#: wp-admin/network/site-themes.php:30 wp-admin/network/site-settings.php:30
+#: wp-admin/network/sites.php:43
 msgid "<a href=\"https://wordpress.org/support/forum/multisite/\">Support Forums</a>"
 msgstr "<a href=\"https://uk.wordpress.org/support/forum/multisite/\">Форуми підтримки</a>"
 
@@ -993,10 +993,6 @@ msgstr "Ці унікальні ключі автентифікації тако
 msgid "This unique authentication key is also missing from your %s file."
 msgstr "Цей унікальний ключ автентифікації також відсутній у вашому файлі %s."
 
-#. translators: This string should only be translated if wp-config-sample.php
-#. is localized. You can check the localized release package or
-#. https://i18n.svn.wordpress.org/<locale code>/branches/<wp
-#. version>/dist/wp-config-sample.php
 #: wp-admin/includes/network.php:427
 msgid "That&#8217;s all, stop editing! Happy blogging."
 msgstr "Це все, перестаньте редагувати! Щасливого ведення блогу."

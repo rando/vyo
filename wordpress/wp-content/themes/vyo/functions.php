@@ -410,6 +410,10 @@ add_action( 'wp_head', 'twentyseventeen_colors_css_wrap' );
 /**
  * Enqueue scripts and styles.
  */
+
+$css_timestamp = filemtime( get_stylesheet_directory().'/style.css' );
+define( 'THEME_VERSION', $css_timestamp );
+
 function twentyseventeen_scripts() {
 	// Add custom fonts, used in the main stylesheet.
 	wp_enqueue_style( 'twentyseventeen-fonts', twentyseventeen_fonts_url(), array(), null );
@@ -477,12 +481,14 @@ function vyo_enqueue_styles() {
 		$deps = array('parent-styles');
 		
 		// load parent styles if active child theme
-		wp_enqueue_style('parent-styles', trailingslashit(get_template_directory_uri()) .'assets/css/style.min.css', false);
+		$ctime = filemtime(get_template_directory() .'/assets/css/style.min.css');
+		wp_enqueue_style('parent-styles', trailingslashit(get_template_directory_uri()) .'assets/css/style.min.css', false, $ctime);
 		
 	}
 	
 	// load active theme stylesheet
-	wp_enqueue_style('theme-styles', trailingslashit(get_template_directory_uri()) .'assets/css/style.min.css', $deps);
+	$ctime = filemtime(get_template_directory() .'/assets/css/style.min.css');
+	wp_enqueue_style('theme-styles', trailingslashit(get_template_directory_uri()) .'assets/css/style.min.css', $deps, $ctime);
 	
 }
 add_action('wp_enqueue_scripts', 'vyo_enqueue_styles');
@@ -613,6 +619,9 @@ function insert_fb_in_head() {
     echo "";
 }
 add_action( 'wp_head', 'insert_fb_in_head', 5 );
+
+$css_timestamp = filemtime( get_stylesheet_directory().'/style.css' );
+define( 'THEME_VERSION', $css_timestamp );
 
 /**
  * Implement the Custom Header feature.
