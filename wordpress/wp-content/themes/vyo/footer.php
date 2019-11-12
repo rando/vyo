@@ -49,8 +49,8 @@
         </div>
 
         <div class="row no-gutter socials mb-5 justify-content-center">
-            <div class="col-6 col-sm-1 p-2 text-right"><a href="https://facebook.com/vyo.travel"><img src="<?= get_theme_file_uri('assets/images/static/') ?>facebook-light.png" alt=""></a></div>
-            <div class="col-6 col-sm-1 p-2 text-left"><a href="https://instagram.com/vyo.travel"><img src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a></div>
+            <div class="col-6 col-sm-1 p-2 text-right"><a href="https://facebook.com/vyo.travel" target="_blank"><img src="<?= get_theme_file_uri('assets/images/static/') ?>facebook-light.png" alt=""></a></div>
+            <div class="col-6 col-sm-1 p-2 text-left"><a href="https://instagram.com/vyo.travel" target="_blank"><img src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a></div>
         </div>
 
         <div class="row justify-content-center footer-logo mb-5">
@@ -59,13 +59,13 @@
 
         <div class="row justify-content-center">
             <div class="col-12 text-center">
-                <p class="vyo-phone mb-0">+38-096-781-65-37</p>
-                <p class="vyo-number">+38-063-455-12-75</p>
+                <p class="vyo-phone mb-0"><a href="tel:+380967816537">+38 096 781 65 37</a></p>
+                <p class="vyo-number"><a href="tel:+380930950096">+38 093 095 00 96</a></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-12 mb-5 text-center font-weight-bold">
-                <p class="vyo-email"><a href="mailto:vyo.travel@gmail.com">vyo.travel@gmail.com</a></p>
+                <p class="vyo-email"><a href="mailto:vyo.travel@gmail.com" target="_blank">info@vyo.travel</a></p>
             </div>
         </div>
     </div>

@@ -73,8 +73,8 @@ if ( is_front_page() ) {
                         <a class="m-1 m-md-2" href="/contacts">Контакти</a href="#">
                 </div>
                 <div class="col-12 d-none d-sm-none d-md-block col-md-3 text-md-right text-center pt-3">
-                    <a href="https://facebook.com/vyo.travel"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>facebook-light.png" alt=""></a>
-                    <a href="https://instagram.com/vyo.travel"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a>
+                    <a href="https://facebook.com/vyo.travel" target="_blank"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>facebook-light.png" alt=""></a>
+                    <a href="https://instagram.com/vyo.travel" target="_blank"><img width="33" height="33" src="<?= get_theme_file_uri('assets/images/static/') ?>instagram-light.png" alt=""></a>
                 </div>
             </div>
         </div>

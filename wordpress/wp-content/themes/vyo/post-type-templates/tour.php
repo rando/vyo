@@ -375,7 +375,7 @@
 				<?php
 				// foreach ($CONTACTS as $idx => $contact):
 				?>
-				<div class="font-weight-bold"><a href="mailto:info@vyo.travel">info@vyo.travel</a></div>
+				<div class="font-weight-bold"><a href="mailto:info@vyo.travel" target="_blank">info@vyo.travel</a></div>
 				<?php
 				// endforeach;
 				?>
@@ -397,7 +397,7 @@
 				// foreach ($CONTACTS as $idx => $contact):
 				?>
 				<!-- <div class="font-weight-bold"><a href="https://fb.com/<?= $contact['facebook']; ?>"><?= $contact['facebook']; ?></a></div> -->
-				<div class="font-weight-bold"><a href="https://fb.com/vyo.travel">vyo.travel</a></div>
+				<div class="font-weight-bold"><a href="https://facebook.com/vyo.travel" target="_blank">vyo.travel</a></div>
 				<?php
 				// endforeach;
 				?>
