@@ -57,8 +57,8 @@
 
 
 	<div class="container article mt-475">
-		<div class="row">
-			<div class="col-8">
+		<div class="row justify-content-center">
+			<div class="col-12 col-sm-12 col-md-8 col-lg-8">
 				<?php
 				the_content();
 				?>
@@ -79,7 +79,7 @@
 
 	<div class="blog">
 		<div class="container tours my-4">
-			<div class="row">
+			<div class="row justify-content-center">
 				<?php
 				foreach ( $tours as $tour ):
 				?>

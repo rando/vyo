@@ -28,7 +28,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700i" rel="stylesheet">
 
-<?php if (get_site_url() === 'http://localhost:8000') { ?>
+<?php if (get_site_url() !== 'http://localhost:8000') { ?>
     <!-- Facebook Pixel Code -->
     <script>
       !function(f,b,e,v,n,t,s)

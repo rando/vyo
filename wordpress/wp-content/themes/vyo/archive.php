@@ -1,62 +1,120 @@
 <?php
-/**
- * The template for displaying archive pages
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
- * @version 1.0
- */
-
+		/**
+		* Template name: tours-list
+		 */
+$GLOBALS['active_page'] = "tours_list";
 get_header(); ?>
 
-AAAAAAAAAAA!
+<?php
 
-<div class="wrap">
+	function get_readable_start_date($tour_dates) {
+		$first_date = $tour_dates[0];
+		$readable_star_date = $start_date = $first_date['start-date'];
+		$end_date = $first_date['end-date'];
 
-	<?php if ( have_posts() ) : ?>
-		<header class="page-header">
+		// Rewrite with proper DATE functions
+		if (substr($start_date, -4) == substr($end_date, -4)) {
+			$readable_star_date = substr($start_date, 0, -4);
+		}
+
+		return $readable_star_date; 
+	}
+
+	function get_readable_countries($countries, $link=false) {
+		$all_countries = array();
+		foreach ($countries as $idx => $country) {
+			$country_name = $country->name;
+			if ($link) {
+				$format = '<a href="/country/%s" alt="%s">%s</a>';
+				$country_name = sprintf($format, $country->slug, $country->name, $country->name); 
+			}
+			array_push($all_countries, $country_name);
+		}
+		return join(', ', $all_countries);
+	}
+
+ 	// TODO Add get_price function
+
+	function get_tours() {
+		$tag_id = get_queried_object()->term_id;
+
+		$args = array(
+			'post_type'			=> 'tours',
+			'meta_key'			=> 'tags',
+			'meta_value'		=> $tag_id,
+			'meta_compare'		=> 'LIKE',
+			'posts_per_page'	=> -1,
+			'orderby'			=> 'start_date',
+			'order'				=> 'ASC'
+		);
+
+		$tours = new WP_Query($args);
+		return $tours;		
+	}
+
+	$tours = get_tours();
+
+?>
+
+<div class="all-tours">
+	<div class="tours">
+		<div class="container tour-container">
+
+			<!-- <div class="row mt-4">
+				<div class="col-12 pl-5">
+					<h1><?= single_cat_title(); ?></h1>
+				</div>
+			</div> -->
+
 			<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="taxonomy-description">', '</div>' );
+			while ( $tours->have_posts() ):
+				$tours->the_post();
 			?>
-		</header><!-- .page-header -->
-	<?php endif; ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	        <div class="row tour no-gutters m-4">
+	            <div class="col-12 col-sm-12 col-md-7 tour-image"><img class="w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt=""></div>
+	            <div class="col-12 col-sm-12 col-md-5 tour-detail">
 
-		<?php
-		if ( have_posts() ) : ?>
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+					<div class="tour-date">
+						<?php
+							if (get_field('quarantine')) { ?>
+								<span class="font-weight-bold quarantine">Після карантину </span> (<?= the_field('days-num') ?> днів)
+							<?php } else { ?>
+							<span class="font-weight-bold">
+							<?= get_readable_start_date(get_field('tour-dates')); ?> - <?= get_field('tour-dates')[0]['end-date']; ?>
+						</span> (<?= the_field('days-num') ?> днів)
+					<?php } ?>
+					</div>
+	                <div class="tour-countries mb-35"><?= get_readable_countries(get_field('countries'), true); ?></div>
+	               	<div class="tour-name-and-desc">
+	                    <h3 class="tour-name font-weight-bold mb-3">
+	                    	<a href="<?= the_permalink(); ?>"><?= the_title(); ?></a>
+	                    </h3>
+	                    <div class="tour-description d-block d-sm-block pr-3"><?= the_content(); ?></div>
+	               	</div>
+	                <div class="tour-bottom">
+						<div class="tour-price my-4 my-md-4 ml-1 font-weight-bold">
+							<?php
+							if (get_field('discount-price')) {
+								the_field('discount-price') ?> <?= the_field('currency');
+							?> 
+							<del><?= the_field('price') ?> <?= the_field('currency'); ?></del>
+							<?php
+							} else {
+								the_field('price') ?> <?= the_field('currency');
+							}
+							?>	
+						</div>
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/post/content', get_post_format() );
-
-			endwhile;
-
-			the_posts_pagination( array(
-				'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
-			) );
-
-		else :
-
-			get_template_part( 'template-parts/post/content', 'none' );
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-</div><!-- .wrap -->
+	                    <a href="<?= the_permalink() ?>" role="button" class="btn btn-outline-vyo-dr align-bottom">ВЙО!</a>
+	                </div>
+	            </div>  
+	        </div>
+	        <?php
+	        endwhile;
+	        ?>
+		</div>
+	</div>
+</div>
 
 <?php get_footer();

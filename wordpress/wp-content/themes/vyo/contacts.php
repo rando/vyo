@@ -6,18 +6,26 @@ $GLOBALS['active_page'] = "contacts";
 
 get_header(); ?>
 
-<div class="container">
-	<div class="row">
-		<div class="col-12">
-			<?php
-			while ( have_posts() ) : the_post();
 
-				the_content();
-
-			endwhile; // End of the loop.
-			?>
+<div class="container contacts">
+	<div class="row mt-4">
+		<div class="col-12 pl-5">
+			<h1>Контакти</h1>
 		</div>
 	</div>
-</div><!-- .wrap -->
+
+	<div class="row">
+		<div class="col-12">
++38 096 781 65 37
+
++38 093 095 00 96
+
+info@vyo.travel
+
+<?= do_shortcode('[ninja_form id=2]') ?>
+		</div>
+	</div>
+
+</div>
 
 <?php get_footer();

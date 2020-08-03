@@ -160,10 +160,6 @@
 		<div class="row pt-35 pb-35">
 			<div class="col-12 col-md-6 text-center text-md-left tour-dates">
 
-			<?php if (get_field('quarantine')) { ?>
-				<div><span class="quarantine">Після карантину</span> (днів - <?= the_field('days-num') ?>)</div>
-			<?php } else { ?>
-
 			<?php
 			$tour_dates = get_field('tour-dates');
 			foreach ($tour_dates as $idx => $dates):
@@ -183,7 +179,6 @@
 
 			<?php
 			endforeach;
-			}
 			?>
 
 			</div>
@@ -223,14 +218,10 @@
 									<div class="col-5 col-md-6 col-lg-6 text-left"><?= draw_circle(get_field('difficult')); ?></div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="col-12 tour-complex-and-comfort">
-						<div class="row mb-md-4">
 							<div class="col-12 col-md-6">
 								<div class="row">
-									<div class="col-7 col-md-6 col-lg-6">Комфорт</div>
-									<div class="col-5 col-md-6 col-lg-6 text-left"><?= draw_circle(get_field('comfort')); ?></div>
+									<div class="col-7 col-md-6 col-lg-4">Комфорт</div>
+									<div class="col-5 col-md-6 col-lg-8 text-left"><?= draw_circle(get_field('comfort')); ?></div>
 								</div>
 							</div>
 						</div>

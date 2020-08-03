@@ -167,7 +167,13 @@ get_header(); ?>
           <div class="carousel-caption d-none d-block h-85">
           	<!-- TODO: Add days wording -->
           	<div class="d-flex align-items-center flex-column justify-content-between h-100 mt-4">
-	            <div class="tour-date font-weight-bold mb-3"><?= get_readable_start_date(get_field('tour-dates')); ?> - <?= get_field('tour-dates')[0]['end-date']; ?> (<?= the_field('days-num') ?> днів)</div>
+	            <div class="tour-date font-weight-bold mb-3">
+              <?php if (get_field('quarantine')) { ?>
+								<span class="quarantine">Після карантину </span> (<?= the_field('days-num') ?> днів)
+              <?php } else { ?>
+                <?= get_readable_start_date(get_field('tour-dates')); ?> - <?= get_field('tour-dates')[0]['end-date']; ?> (<?= the_field('days-num') ?> днів)
+              <?php } ?>
+              </div>
 	            <div class="tour-countries mb-md-6"><?= get_readable_countries(get_field('countries'), true); ?></div>
 	            <div class="mt-auto"><h3 class="tour-name mb-3"><a href="<?= the_permalink(); ?>"><?= the_title(); ?></a></h3></div>
 	            <div class="mt-auto mb-6">
@@ -289,7 +295,15 @@ get_header(); ?>
                 <div class="tour">
                     <div><img class="w-100" src="<?= get_the_post_thumbnail_url(); ?>" alt=""></div>
                     <div class="tour-detail">
-                        <div class="tour-date"><span class="font-weight-bold"><?= get_readable_start_date(get_field('tour-dates')); ?> - <?= get_field('tour-dates')[0]['end-date']; ?></span> (<?= the_field('days-num') ?> днів)</div>
+                        <div class="tour-date">
+                          <?php if (get_field('quarantine')) { ?>
+                          <span class="font-weight-bold quarantine">Після карантину </span> (<?= the_field('days-num') ?> днів)
+                          <?php } else { ?>
+                            <span class="font-weight-bold">
+                              <?= get_readable_start_date(get_field('tour-dates')); ?> - <?= get_field('tour-dates')[0]['end-date']; ?>
+                            </span> (<?= the_field('days-num') ?> днів)
+                          <?php } ?>
+                        </div>
                         <div class="tour-countries mb-35"><?= get_readable_countries(get_field('countries'), true); ?></div>
                         <div class="tour-bottom">
 	                        <h3 class="tour-name font-weight-bold mb-3">

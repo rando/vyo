@@ -8123,6 +8123,15 @@ body.all-page {
     font-size: 1.5rem;
 }
 
+.about-us h1, .articles h1, .contacts h1 {
+    font-size: 2.25rem;
+    font-weight: bold;
+}
+
+.about-us h2 {
+    color: #343a40;
+}
+
 .articles .article-container {
     padding: 5px;
 }
@@ -8137,20 +8146,24 @@ body.all-page {
 }
 
 .articles .article-container .article img {
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 40px 40px 0 0;
+    object-fit: cover;
     width: 50%;
 }
 
-.articles .article-container .article h3 {
+.articles .article-container .article .article-detail {
+    padding: 10px;
+}
+
+.articles .article-container .article .article-detail h3 {
     font-size: 1.75rem;
 }
 
-.articles .article-container .article h3 a {
+.articles .article-container .article .article-detail h3 a {
     color: #343a40;
 }
 
-.articles .article-container .article h3 a:hover {
+.articles .article-container .article .article-detail h3 a:hover {
     text-decoration: none;
 }
 
@@ -8495,6 +8508,10 @@ body.all-page {
 
 .tour .tour-complex-and-comfort, .tour .peoples {
     font-size: 1.5rem;
+}
+
+.tour .video iframe {
+    margin: 5px;
 }
 
 .tour .gallery img {
